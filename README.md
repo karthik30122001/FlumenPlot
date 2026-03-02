@@ -50,6 +50,49 @@ Use it to:
 
 ---
 
+## Installation
+
+Taxa-Viz can be installed directly from GitHub using pip:
+
+```pip install git+https://github.com/karthik30122001/taxa-viz.git```
+
+This will install the latest version of the tool from the main branch.
+
+Requirements
+* Python 3.8+
+* pip
+
+---
+
+## Usage
+
+Taxa-Viz supports different input formats.
+For MetaPhlAn-style `.mpa.txt` reports:
+
+### Basic Usage
+
+```bash
+taxa-viz metaphlan input.mpa.txt
+```
+
+This generates an interactive Sankey visualization `sankey.html` from the provided report.  
+(Optional `-o` flag for custom output filename. Usage `-o filename.html`)
+
+---
+
+### With Lineage Highlighting
+
+To highlight specific taxa using a `list.txt` file:
+
+```bash
+taxa-viz metaphlan input.mpa.txt -l list.txt
+```
+
+The `list.txt` file should contain one taxon per line.
+Matching lineages will be highlighted in the Sankey plot.
+
+---
+
 ## Input
 
 * Kraken `.mpa.txt` or compatible taxonomy report
@@ -63,4 +106,5 @@ Use it to:
 * Real-time filtering and lineage highlighting
 
 ---
+
 

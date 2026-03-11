@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 
-from taxa_viz.consensus import mpa_consensus
+from flumenplot.consensus import mpa_consensus
 # from taxa_viz.errors import ValidationError
 
 RANK_MAP = {

@@ -1,8 +1,8 @@
 import argparse
 import sys
 
-from taxa_viz.mpa2sankey import mpa_to_sankey
-from taxa_viz.generate_report import render_html
+from flumenplot.mpa2sankey import mpa_to_sankey
+from flumenplot.generate_report import render_html
 # from taxa_viz.kraken_to_sankey import kraken_to_sankey
 
 

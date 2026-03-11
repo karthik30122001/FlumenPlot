@@ -3,7 +3,7 @@ from importlib.resources import files
 
 
 def load_template():
-    return files("taxa_viz").joinpath("template.html")
+    return files("flumenplot").joinpath("template.html")
 
 
 def render_html(data_1, data_0_5, data_0_1, output, color, list=[]):

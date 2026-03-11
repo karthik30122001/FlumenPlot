@@ -1,6 +1,6 @@
 [project]
-name = "taxa-viz"
-version = "0.2.1"
+name = "flumenplot"
+version = "0.3.0"
 description = ""
 authors = [
     {name = "karthik30122001",email = "karthikeyan.vpani@gmail.com"}
@@ -9,10 +9,10 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 [project.scripts]
-taxa-viz = "taxa_viz.cli:main"
+flumenplot = "flumenplot.cli:main"
 
 [tool.poetry]
-packages = [{include = "taxa_viz", from = "src"}]
+packages = [{include = "flumenplot", from = "src"}]
 
 [tool.poetry.dependencies]
 pandas = "2.3.2"

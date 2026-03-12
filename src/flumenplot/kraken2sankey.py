@@ -3,7 +3,7 @@ import sys
 
 rank_maps = {
         "U": "Unclassified",
-        "R2": "Kingdom",
+        "K": "Kingdom",
         "P": "Phylum",
         "C": "Class",
         "O": "Order",
@@ -13,9 +13,9 @@ rank_maps = {
         }
 
 
-def kraken_report_to_sankey(
+def kraken2sankey(
     report_file,
-    view_ranks={"U", "R2", "P", "C", "O", "F", "G", "S"},
+    view_ranks={"U", "K", "P", "C", "O", "F", "G", "S"},
     min_reads=1,
     abundance=0.5,
     include_unclassified=False
@@ -49,22 +49,6 @@ def kraken_report_to_sankey(
             depth = (len(name) - len(stripped)) // 2
             name = stripped
 
-            if rank == "U":
-                nodes[name] = {
-                    "name": name,
-                    "value": clade_reads,
-                    "rank": "Unclassified",
-                    "percent": rel_aub
-                }
-
-                links.append({
-                    "source": name,
-                    "target": name,
-                    "value": 1e-6,
-                    "rel": rel_aub
-                })
-                continue
-
             # pop until parent depth
             while stack and stack[-1][0] >= depth:
                 stack.pop()
@@ -77,7 +61,6 @@ def kraken_report_to_sankey(
 
             nodes[name] = {
                     "name": name,
-                    "value": clade_reads,
                     "rank": rank_maps[rank],
                     "percent": rel_aub
                     }
@@ -87,7 +70,7 @@ def kraken_report_to_sankey(
                 links.append({
                     "source": parent_name,
                     "target": name,
-                    "value": clade_reads,
+                    "value": rel_aub,
                     "rel": rel_aub
                 })
 
@@ -100,21 +83,21 @@ def kraken_report_to_sankey(
 
 
 def main(filepath):
-    sankey_data_1 = kraken_report_to_sankey(
+    sankey_data_1 = kraken2sankey(
         filepath,
         # min_reads=3000,
         abundance=0.9,
         include_unclassified=True
     )
 
-    sankey_data_0_5 = kraken_report_to_sankey(
+    sankey_data_0_5 = kraken2sankey(
         filepath,
         # min_reads=3000,
         abundance=0.5,
         include_unclassified=True
     )
 
-    sankey_data_0_1 = kraken_report_to_sankey(
+    sankey_data_0_1 = kraken2sankey(
         filepath,
         # min_reads=3000,
         abundance=0.1,

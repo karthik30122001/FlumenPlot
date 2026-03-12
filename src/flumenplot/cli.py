@@ -1,6 +1,7 @@
 import argparse
 import sys
 
+from flumenplot.kraken2sankey import kraken2sankey
 from flumenplot.mpa2sankey import mpa_to_sankey
 from flumenplot.generate_report import render_html
 # from taxa_viz.kraken_to_sankey import kraken_to_sankey
@@ -14,13 +15,13 @@ def load_highlights(args):
                 for line in fh
                 if line.strip()
             ]
-
-    return []
+    else:
+        return []
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        prog="taxa-viz",
+        prog="FlumenPlot",
         description="Generate interactive Sankey plots from taxonomic classifier outputs",
     )
 
@@ -31,25 +32,35 @@ def main() -> None:
     )
 
     # ---- Kraken subcommand ----
-    # kraken = subparsers.add_parser(
-    #     "kraken",
-    #     help="Convert Kraken/Bracken/MPA-style report to Sankey",
-    # )
-    # kraken.add_argument(
-    #     "input",
-    #     help="Kraken report file",
-    # )
-    # kraken.add_argument(
-    #     "-o",
-    #     "--output",
-    #     default="sankey.html",
-    #     help="Output HTML file (default: sankey.html)",
-    # )
+    kraken = subparsers.add_parser(
+        "kraken",
+        help="Convert Kraken report to Sankey",
+    )
+    kraken.add_argument(
+        "input",
+        help="Kraken report file",
+    )
+    kraken.add_argument(
+        "-o",
+        "--output",
+        default="sankey.html",
+        help="Output HTML file (default: sankey.html)",
+    )
+    kraken.add_argument(
+        "-l",
+        "--highlight-list",
+        metavar="FILE",
+        help="File containing taxa to highlight (one per line)",
+    )
+    kraken.add_argument(
+        "--highlight-color",
+        help="Custom color to highlight taxa with",
+    )
     #
     # ---- MetaPhlAn subcommand ----
     metaphlan = subparsers.add_parser(
         "metaphlan",
-        help="Convert MetaPhlAn output to Sankey",
+        help="Convert MPA style report to Sankey",
     )
     metaphlan.add_argument(
         "input",
@@ -82,16 +93,18 @@ def main() -> None:
     args = parser.parse_args()
 
     try:
-        # if args.command == "kraken":
-        #     nodes, edges = kraken_to_sankey(args.input)
+        if args.command == "kraken":
+            data_1 = kraken2sankey(args.input, abundance=4.9,)
+            data_0_5 = kraken2sankey(args.input, abundance=0.9,)
+            data_0_1 = kraken2sankey(args.input, abundance=0.49,)
         #
         if args.command == "metaphlan":
             data_1 = mpa_to_sankey(args.input, min_percent=4.9, consensus=args.consensus)
             data_0_5 = mpa_to_sankey(args.input, min_percent=0.9, consensus=args.consensus)
             data_0_1 = mpa_to_sankey(args.input, min_percent=0.49, consensus=args.consensus)
 
-        else:
-            parser.error("Unknown command")
+        # else:
+        #     parser.error("Unknown command")
 
         # Render HTML (centralised here or in a helper)
         list = load_highlights(args)

@@ -178,7 +178,7 @@
           formatter: function (params) {
             return `
               <b>${params.name}</b><br/>
-              Relative abundance: ${params.data.percent} %<br/>
+              Relative abundance: ${params.data.percent.toPrecision(4)} %<br/>
               Rank: ${params.data.rank}
             `;
           }
@@ -249,6 +249,26 @@
                         },
                         lineStyle: {
                             color: '#abf4a3',
+                            opacity: 0.6
+                        }
+                        },
+                        {
+                        depth:4,
+                        itemStyle: {
+                            color: '#94F38F'
+                        },
+                        lineStyle: {
+                            color: '#94F28F',
+                            opacity: 0.6
+                        }
+                        },
+                        {
+                        depth:5,
+                        itemStyle: {
+                            color: '#8FCE00'
+                        },
+                        lineStyle: {
+                            color: '#8FCE00',
                             opacity: 0.6
                         }
                         }

@@ -71,10 +71,11 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
         parts = path.split("|")
         nodes.append(
                 {
-                    "name": parts[-1][3:],
+                    "name": parts[-1],
                     "rank": get_rank(parts[-1]),
                     "percent": percent,
-                    "value": percent
+                    "value": percent,
+                    "label": parts[-1][3:]
                     }
                 )
 
@@ -83,8 +84,8 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
 
         if len(parts) > 1:
             edges.append({
-                'source': parts[-2][3:],
-                'target': parts[-1][3:],
+                'source': parts[-2],
+                'target': parts[-1],
                 'rel': count,
                 'value': percent
                 })

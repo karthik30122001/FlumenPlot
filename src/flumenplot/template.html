@@ -193,10 +193,10 @@
             formatter: function (params) {
               const reads =
                 typeof params.value === 'number'
-                  ? params.value.toPrecision(3)
+                  ? params.value.toPrecision(4)
                   : 'NA';
 
-              return `${params.name}\n${reads} %`;
+              return `${params.data.label}\n${reads} %`;
             }
           },
           type: 'sankey',

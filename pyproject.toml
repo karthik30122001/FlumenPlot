@@ -1,6 +1,6 @@
 [project]
 name = "flumenplot"
-version = "0.3.1"
+version = "0.4.0"
 description = ""
 authors = [
     {name = "karthik30122001",email = "karthikeyan.vpani@gmail.com"}

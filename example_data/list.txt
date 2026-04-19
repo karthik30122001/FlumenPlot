@@ -1,0 +1,8 @@
+
+k__Pseudomonadati
+p__Pseudomonadota
+c__Alphaproteobacteria
+o__Hyphomicrobiales
+f__Nitrobacteraceae
+g__Bradyrhizobium
+s__Bradyrhizobium_sp

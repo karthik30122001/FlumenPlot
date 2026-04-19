@@ -1,3 +1,4 @@
+# from flumenplot.order import order_by_abundance
 import pandas as pd
 import json
 
@@ -90,6 +91,8 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
                 'value': percent
                 })
 
+    # order_by_abundance(nodes)
+    # print("Test")
     return {
         "nodes": nodes,
         "links": edges

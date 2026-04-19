@@ -105,8 +105,8 @@
   const highlightPath = {{PATH}};
   
 
-  const highlightNodes = new Set(highlightPath);
-  const highlightEdges = new Set(
+  let highlightNodes = new Set(highlightPath);
+  let highlightEdges = new Set(
     highlightPath.map((node, i) =>
       i < highlightPath.length - 1
         ? `${highlightPath[i]}→${highlightPath[i + 1]}`
@@ -115,6 +115,7 @@
   );  
   let currentDepth = 2
   let currentData = data_1
+  let currentNode = ""
 
   
   function filterByDepth(data, maxDepth) {
@@ -133,11 +134,40 @@
 
   return { nodes, links };
 }
+  function getParents(nodeId, links, path=[]) {
+    const node = links
+      .filter(l => l.target === nodeId)
+      .map(l => l.source);
+    path.push(nodeId)
+    if (node.length === 0) {
+      return path
+    } else {
+      return getParents(node[0], links, path)
+    } 
+  }
+  
 
   function makeSankeyOptions(data) {
     console.log(currentDepth)
     filteredData = filterByDepth(data=data, maxDepth=currentDepth)
 
+//    console.log(highlightPath)
+
+    let customNodes = highlightPath.length > 0 ? highlightPath : getParents(currentNode, filteredData.links).reverse()
+    let highlightNodes = new Set(customNodes);
+    let highlightEdges = new Set(
+      customNodes.map((node, i) =>
+        i < customNodes.length - 1
+          ? `${customNodes[i]}→${customNodes[i + 1]}`
+          : null
+      ).filter(Boolean)
+    );  
+//    console.log(customNodes)
+//    console.log(highlightNodes)
+//    console.log(highlightEdges)
+
+
+    // console.log(getParents(filteredData.nodes[5].name, filteredData.links))
     
     const HIGHLIGHT_COLOR = "{{HIGH_COLOR}}"
     const styledNodes = filteredData.nodes.map(n => {
@@ -202,6 +232,7 @@
           type: 'sankey',
           nodeGap: 25,
           nodeAlign: 'left',
+          layoutIterations: 50,
           emphasis: {
             focus: 'adjacency'
           },
@@ -277,9 +308,41 @@
       };
   }
 
-  chart.setOption(makeSankeyOptions(data_0_5));
+//  chart.setOption(makeSankeyOptions(data_0_5));
+  rerenderChart(currentData)
+  // chart.on('click', { seriesType: 'sankey', dataType: 'node' }, (params) => {
+//    currentNode = params.name;  // the clicked node's name/id
+//    chart.setOption(makeSankeyOptions(currentData));
+//  });
+  function showToast(message) {
+    const toast = document.createElement('div');
+    toast.innerText = message;
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      z-index: 9999;
+      font-size: 14px;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    `;
+    
+    document.body.appendChild(toast);
 
-  function rerenderChart(data) {
+    // fade out and remove after 3 seconds
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      setTimeout(() => toast.remove(), 500);
+    }, 3000);
+  }
+
+
+  function rerenderChart(data, customNodes) {
     const dom = document.getElementById("chart");
 
     if (chart) {
@@ -287,7 +350,24 @@
     }
 
     chart = echarts.init(dom);
+    chart.on('click', { seriesType: 'sankey', dataType: 'node' }, (params) => {
+      currentNode = params.name;  // the clicked node's name/id
+
+      chart.setOption(makeSankeyOptions(data));
+    });
+    // Rightclick function
+    chart.on('contextmenu', { seriesType: 'sankey', dataType: 'node' }, (params) => {
+      params.event.event.preventDefault();
+      const path = getParents(params.name, filteredData.links).reverse();
+      
+      // copy to clipboard
+      navigator.clipboard.writeText(path.join("\n")).then(() => {
+        showToast('Path copied to clipboard!');
+      });
+    });
+
     chart.setOption(makeSankeyOptions(data));
+
   }
   
 

@@ -4,6 +4,7 @@ import sys
 from flumenplot.kraken2sankey import kraken2sankey
 from flumenplot.mpa2sankey import mpa_to_sankey
 from flumenplot.generate_report import render_html
+from flumenplot.wip_order import get_children, order_alpabetically
 # from taxa_viz.kraken_to_sankey import kraken_to_sankey
 
 
@@ -90,6 +91,10 @@ def main() -> None:
         "--highlight-color",
         help="Custom color to highlight taxa with",
     )
+    metaphlan.add_argument(
+        "--debug",
+        help="Debug",
+    )
     args = parser.parse_args()
 
     try:
@@ -105,13 +110,19 @@ def main() -> None:
 
         # else:
         #     parser.error("Unknown command")
+        
+        # print(get_children(data_1["nodes"][0], data_1["nodes"], data_1["links"]))
 
         # Render HTML (centralised here or in a helper)
+        data_list = [data_1, data_0_5, data_0_1]
+        for data in data_list:
+            data["nodes"] = order_alpabetically(data)
+
         list = load_highlights(args)
         if args.highlight_color:
             render_html(data_1, data_0_5, data_0_1, args.output, color=args.highlight_color, list=list)
         else:
-            render_html(data_1, data_0_5, data_0_1, args.output, color="#FF637E", list=list)
+            render_html(data_1, data_0_5, data_0_1, args.output, color="#f5e042", list=list)
 
     # except FileFormatError as e:
     #     print(f"File format error: {e}", file=sys.stderr)

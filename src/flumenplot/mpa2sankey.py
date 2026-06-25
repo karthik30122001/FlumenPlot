@@ -1,6 +1,5 @@
 # from flumenplot.order import order_by_abundance
 import pandas as pd
-import json
 
 from flumenplot.consensus import mpa_consensus
 # from taxa_viz.errors import ValidationError
@@ -98,26 +97,3 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
         "links": edges
     }
 
-
-if __name__ == "__main__":
-
-    data = pd.read_csv("CS1_lane1_db2.kraken2.mpa.txt", delimiter="\t")
-# print(data.head())
-
-    rows = list(data.itertuples(index=False, name=None))
-    print(rows[:5])
-
-    data_1 = json.dumps(mpa_to_sankey("CS1_lane1_db2.kraken2.mpa.txt", min_percent=4.9), indent=2)
-    data_0_5 = json.dumps(mpa_to_sankey("CS1_lane1_db2.kraken2.mpa.txt", min_percent=0.9), indent=2)
-    data_0_1 = json.dumps(mpa_to_sankey("CS1_lane1_db2.kraken2.mpa.txt", min_percent=0.49), indent=2)
-
-    with open("template.html", "r", encoding="utf-8") as f:
-        html = f.read()
-        # print(html)
-
-    html = html.replace("{{DATA_1}}", data_1)
-    html = html.replace("{{DATA_0.5}}", data_0_5)
-    html = html.replace("{{DATA_0.1}}", data_0_1)
-
-    with open("LR_consensus.mpa.html", "w") as f:
-        f.write(html)

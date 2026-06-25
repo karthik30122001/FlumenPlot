@@ -71,6 +71,18 @@
         <option value="5">Up to Genus</option>
         <option value="6">Up to Species</option>
       </select>
+      <div>
+        <span id="nodeLimitToolTip">Max</span>
+        <input
+        id="nodeLimit"
+        type="range"
+        min="0"
+        max="6"
+        step="1"
+        value="6"
+        onchange="onLimitChange()"
+        />
+      </div>
     </div>
   </div>
 <div id="chart"></div>
@@ -79,176 +91,325 @@
  {
   "nodes": [
     {
-      "name": "k__Pseudomonadati",
+      "name": "k__Bacteria",
       "rank": "Kingdom",
-      "percent": 50.142493532818854,
-      "value": 50.142493532818854,
-      "label": "Pseudomonadati"
+      "percent": 97.06088,
+      "value": 97.06088,
+      "label": "Bacteria"
     },
     {
-      "name": "p__Pseudomonadota",
+      "name": "p__Firmicutes",
       "rank": "Phylum",
-      "percent": 38.128624930022404,
-      "value": 38.128624930022404,
-      "label": "Pseudomonadota"
+      "percent": 73.94313,
+      "value": 73.94313,
+      "label": "Firmicutes"
     },
     {
-      "name": "c__Alphaproteobacteria",
+      "name": "c__Clostridia",
       "rank": "Class",
-      "percent": 20.972683338292438,
-      "value": 20.972683338292438,
-      "label": "Alphaproteobacteria"
+      "percent": 49.38237,
+      "value": 49.38237,
+      "label": "Clostridia"
     },
     {
-      "name": "o__Hyphomicrobiales",
+      "name": "o__Clostridia_unclassified",
       "rank": "Order",
-      "percent": 12.796809775188391,
-      "value": 12.796809775188391,
-      "label": "Hyphomicrobiales"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "c__Betaproteobacteria",
-      "rank": "Class",
-      "percent": 8.104480586096487,
-      "value": 8.104480586096487,
-      "label": "Betaproteobacteria"
-    },
-    {
-      "name": "o__Burkholderiales",
-      "rank": "Order",
-      "percent": 6.691724449999442,
-      "value": 6.691724449999442,
-      "label": "Burkholderiales"
-    },
-    {
-      "name": "c__Gammaproteobacteria",
-      "rank": "Class",
-      "percent": 7.0164385932068445,
-      "value": 7.0164385932068445,
-      "label": "Gammaproteobacteria"
-    },
-    {
-      "name": "k__Bacillati",
-      "rank": "Kingdom",
-      "percent": 43.661258080396536,
-      "value": 43.661258080396536,
-      "label": "Bacillati"
-    },
-    {
-      "name": "p__Actinomycetota",
-      "rank": "Phylum",
-      "percent": 40.652002798802464,
-      "value": 40.652002798802464,
-      "label": "Actinomycetota"
-    },
-    {
-      "name": "c__Actinomycetes",
-      "rank": "Class",
-      "percent": 37.42087519553783,
-      "value": 37.42087519553783,
-      "label": "Actinomycetes"
-    },
-    {
-      "name": "o__Kitasatosporales",
-      "rank": "Order",
-      "percent": 11.83144601075688,
-      "value": 11.83144601075688,
-      "label": "Kitasatosporales"
-    },
-    {
-      "name": "f__Streptomycetaceae",
+      "name": "f__Clostridia_unclassified",
       "rank": "Family",
-      "percent": 11.806840425150272,
-      "value": 11.806840425150272,
-      "label": "Streptomycetaceae"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "g__Streptomyces",
+      "name": "g__Clostridia_unclassified",
       "rank": "Genus",
-      "percent": 10.768799442168884,
-      "value": 10.768799442168884,
-      "label": "Streptomyces"
+      "percent": 25.15318,
+      "value": 25.15318,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "o__Micrococcales",
+      "name": "s__Clostridia_bacterium",
+      "rank": "Species",
+      "percent": 22.14293,
+      "value": 22.14293,
+      "label": "Clostridia_bacterium"
+    },
+    {
+      "name": "t__SGB6308",
+      "rank": "Unknown",
+      "percent": 5.85688,
+      "value": 5.85688,
+      "label": "SGB6308"
+    },
+    {
+      "name": "t__SGB14111",
+      "rank": "Unknown",
+      "percent": 5.48272,
+      "value": 5.48272,
+      "label": "SGB14111"
+    },
+    {
+      "name": "o__Clostridiales",
       "rank": "Order",
-      "percent": 5.915843591438751,
-      "value": 5.915843591438751,
-      "label": "Micrococcales"
+      "percent": 16.91141,
+      "value": 16.91141,
+      "label": "Clostridiales"
+    },
+    {
+      "name": "f__Ruminococcaceae",
+      "rank": "Family",
+      "percent": 8.87596,
+      "value": 8.87596,
+      "label": "Ruminococcaceae"
+    },
+    {
+      "name": "f__Lachnospiraceae",
+      "rank": "Family",
+      "percent": 6.83194,
+      "value": 6.83194,
+      "label": "Lachnospiraceae"
+    },
+    {
+      "name": "c__Bacilli",
+      "rank": "Class",
+      "percent": 21.71949,
+      "value": 21.71949,
+      "label": "Bacilli"
+    },
+    {
+      "name": "o__Bacilli_unclassified",
+      "rank": "Order",
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
+    },
+    {
+      "name": "f__Bacilli_unclassified",
+      "rank": "Family",
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
+    },
+    {
+      "name": "g__Bacilli_unclassified",
+      "rank": "Genus",
+      "percent": 14.839440000000002,
+      "value": 14.839440000000002,
+      "label": "Bacilli_unclassified"
+    },
+    {
+      "name": "s__Bacilli_bacterium",
+      "rank": "Species",
+      "percent": 8.19042,
+      "value": 8.19042,
+      "label": "Bacilli_bacterium"
+    },
+    {
+      "name": "p__Bacteroidetes",
+      "rank": "Phylum",
+      "percent": 13.08945,
+      "value": 13.08945,
+      "label": "Bacteroidetes"
+    },
+    {
+      "name": "c__Bacteroidia",
+      "rank": "Class",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidia"
+    },
+    {
+      "name": "o__Bacteroidales",
+      "rank": "Order",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidales"
+    },
+    {
+      "name": "f__Rikenellaceae",
+      "rank": "Family",
+      "percent": 7.6702699999999995,
+      "value": 7.6702699999999995,
+      "label": "Rikenellaceae"
+    },
+    {
+      "name": "g__Rikenellaceae_unclassified",
+      "rank": "Genus",
+      "percent": 7.605529999999999,
+      "value": 7.605529999999999,
+      "label": "Rikenellaceae_unclassified"
+    },
+    {
+      "name": "s__Rikenellaceae_unclassified_SGB2230",
+      "rank": "Species",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "Rikenellaceae_unclassified_SGB2230"
+    },
+    {
+      "name": "t__SGB2230",
+      "rank": "Unknown",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "SGB2230"
+    },
+    {
+      "name": "p__Proteobacteria",
+      "rank": "Phylum",
+      "percent": 6.85062,
+      "value": 6.85062,
+      "label": "Proteobacteria"
     }
   ],
   "links": [
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Pseudomonadota",
-      "rel": 6323886,
-      "value": 38.128624930022404
+      "source": "k__Bacteria",
+      "target": "p__Firmicutes",
+      "rel": 73.94313,
+      "value": 73.94313
     },
     {
-      "source": "p__Pseudomonadota",
-      "target": "c__Alphaproteobacteria",
-      "rel": 3478459,
-      "value": 20.972683338292438
+      "source": "k__Bacteria",
+      "target": "p__Bacteroidetes",
+      "rel": 13.08945,
+      "value": 13.08945
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Hyphomicrobiales",
-      "rel": 2122436,
-      "value": 12.796809775188391
+      "source": "k__Bacteria",
+      "target": "p__Proteobacteria",
+      "rel": 6.85062,
+      "value": 6.85062
     },
     {
-      "source": "p__Pseudomonadota",
-      "target": "c__Betaproteobacteria",
-      "rel": 1344182,
-      "value": 8.104480586096487
+      "source": "p__Firmicutes",
+      "target": "c__Clostridia",
+      "rel": 49.38237,
+      "value": 49.38237
     },
     {
-      "source": "c__Betaproteobacteria",
-      "target": "o__Burkholderiales",
-      "rel": 1109867,
-      "value": 6.691724449999442
+      "source": "p__Bacteroidetes",
+      "target": "c__Bacteroidia",
+      "rel": 12.64928,
+      "value": 12.64928
     },
     {
-      "source": "p__Pseudomonadota",
-      "target": "c__Gammaproteobacteria",
-      "rel": 1163723,
-      "value": 7.0164385932068445
+      "source": "p__Firmicutes",
+      "target": "c__Bacilli",
+      "rel": 21.71949,
+      "value": 21.71949
     },
     {
-      "source": "k__Bacillati",
-      "target": "p__Actinomycetota",
-      "rel": 6742405,
-      "value": 40.652002798802464
+      "source": "c__Clostridia",
+      "target": "o__Clostridiales",
+      "rel": 16.91141,
+      "value": 16.91141
     },
     {
-      "source": "p__Actinomycetota",
-      "target": "c__Actinomycetes",
-      "rel": 6206501,
-      "value": 37.42087519553783
+      "source": "c__Bacteroidia",
+      "target": "o__Bacteroidales",
+      "rel": 12.64928,
+      "value": 12.64928
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Kitasatosporales",
-      "rel": 1962324,
-      "value": 11.83144601075688
+      "source": "c__Clostridia",
+      "target": "o__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
     },
     {
-      "source": "o__Kitasatosporales",
-      "target": "f__Streptomycetaceae",
-      "rel": 1958243,
-      "value": 11.806840425150272
+      "source": "c__Bacilli",
+      "target": "o__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
     },
     {
-      "source": "f__Streptomycetaceae",
-      "target": "g__Streptomyces",
-      "rel": 1786077,
-      "value": 10.768799442168884
+      "source": "o__Clostridiales",
+      "target": "f__Ruminococcaceae",
+      "rel": 8.87596,
+      "value": 8.87596
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Micrococcales",
-      "rel": 981182,
-      "value": 5.915843591438751
+      "source": "o__Clostridiales",
+      "target": "f__Lachnospiraceae",
+      "rel": 6.83194,
+      "value": 6.83194
+    },
+    {
+      "source": "o__Clostridia_unclassified",
+      "target": "f__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
+    },
+    {
+      "source": "o__Bacteroidales",
+      "target": "f__Rikenellaceae",
+      "rel": 7.67027,
+      "value": 7.6702699999999995
+    },
+    {
+      "source": "o__Bacilli_unclassified",
+      "target": "f__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__Clostridia_unclassified",
+      "rel": 25.15318,
+      "value": 25.15318
+    },
+    {
+      "source": "f__Rikenellaceae",
+      "target": "g__Rikenellaceae_unclassified",
+      "rel": 7.60553,
+      "value": 7.605529999999999
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__Bacilli_unclassified",
+      "rel": 14.83944,
+      "value": 14.839440000000002
+    },
+    {
+      "source": "g__Rikenellaceae_unclassified",
+      "target": "s__Rikenellaceae_unclassified_SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
+    },
+    {
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_bacterium",
+      "rel": 22.14293,
+      "value": 22.14293
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_bacterium",
+      "rel": 8.19042,
+      "value": 8.19042
+    },
+    {
+      "source": "s__Rikenellaceae_unclassified_SGB2230",
+      "target": "t__SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6308",
+      "rel": 5.85688,
+      "value": 5.85688
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14111",
+      "rel": 5.48272,
+      "value": 5.48272
     }
   ]
 }
@@ -258,931 +419,1320 @@
  {
   "nodes": [
     {
-      "name": "k__Pseudomonadati",
+      "name": "k__Archaea",
       "rank": "Kingdom",
-      "percent": 50.142493532818854,
-      "value": 50.142493532818854,
-      "label": "Pseudomonadati"
+      "percent": 2.93912,
+      "value": 2.93912,
+      "label": "Archaea"
     },
     {
-      "name": "p__Pseudomonadota",
+      "name": "p__Euryarchaeota",
       "rank": "Phylum",
-      "percent": 38.128624930022404,
-      "value": 38.128624930022404,
-      "label": "Pseudomonadota"
+      "percent": 2.93912,
+      "value": 2.93912,
+      "label": "Euryarchaeota"
     },
     {
-      "name": "c__Alphaproteobacteria",
+      "name": "c__CFGB343",
       "rank": "Class",
-      "percent": 20.972683338292438,
-      "value": 20.972683338292438,
-      "label": "Alphaproteobacteria"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "CFGB343"
     },
     {
-      "name": "o__Hyphomicrobiales",
+      "name": "o__OFGB343",
       "rank": "Order",
-      "percent": 12.796809775188391,
-      "value": 12.796809775188391,
-      "label": "Hyphomicrobiales"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "OFGB343"
     },
     {
-      "name": "f__Nitrobacteraceae",
+      "name": "f__FGB343",
       "rank": "Family",
-      "percent": 4.0367329256921565,
-      "value": 4.0367329256921565,
-      "label": "Nitrobacteraceae"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "FGB343"
     },
     {
-      "name": "g__Bradyrhizobium",
+      "name": "g__GGB781",
       "rank": "Genus",
-      "percent": 3.234540188771448,
-      "value": 3.234540188771448,
-      "label": "Bradyrhizobium"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "GGB781"
     },
     {
-      "name": "f__Rhizobiaceae",
-      "rank": "Family",
-      "percent": 1.9030047935973626,
-      "value": 1.9030047935973626,
-      "label": "Rhizobiaceae"
+      "name": "s__GGB781_SGB1024",
+      "rank": "Species",
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "GGB781_SGB1024"
     },
     {
-      "name": "f__Phyllobacteriaceae",
-      "rank": "Family",
-      "percent": 1.334429460621567,
-      "value": 1.334429460621567,
-      "label": "Phyllobacteriaceae"
+      "name": "t__SGB1024",
+      "rank": "Unknown",
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "SGB1024"
     },
     {
-      "name": "g__Mesorhizobium",
-      "rank": "Genus",
-      "percent": 1.0268807430995381,
-      "value": 1.0268807430995381,
-      "label": "Mesorhizobium"
-    },
-    {
-      "name": "f__Methylobacteriaceae",
-      "rank": "Family",
-      "percent": 0.95699509184588,
-      "value": 0.95699509184588,
-      "label": "Methylobacteriaceae"
-    },
-    {
-      "name": "o__Sphingomonadales",
-      "rank": "Order",
-      "percent": 2.4886490834102823,
-      "value": 2.4886490834102823,
-      "label": "Sphingomonadales"
-    },
-    {
-      "name": "f__Sphingomonadaceae",
-      "rank": "Family",
-      "percent": 1.281847909022641,
-      "value": 1.281847909022641,
-      "label": "Sphingomonadaceae"
-    },
-    {
-      "name": "g__Sphingomonas",
-      "rank": "Genus",
-      "percent": 0.9932854666966926,
-      "value": 0.9932854666966926,
-      "label": "Sphingomonas"
-    },
-    {
-      "name": "o__Rhodobacterales",
-      "rank": "Order",
-      "percent": 1.7216795347066278,
-      "value": 1.7216795347066278,
-      "label": "Rhodobacterales"
-    },
-    {
-      "name": "o__Rhodospirillales",
-      "rank": "Order",
-      "percent": 1.2197099121440111,
-      "value": 1.2197099121440111,
-      "label": "Rhodospirillales"
-    },
-    {
-      "name": "c__Betaproteobacteria",
-      "rank": "Class",
-      "percent": 8.104480586096487,
-      "value": 8.104480586096487,
-      "label": "Betaproteobacteria"
-    },
-    {
-      "name": "o__Burkholderiales",
-      "rank": "Order",
-      "percent": 6.691724449999442,
-      "value": 6.691724449999442,
-      "label": "Burkholderiales"
-    },
-    {
-      "name": "f__Burkholderiaceae",
-      "rank": "Family",
-      "percent": 2.374942457839345,
-      "value": 2.374942457839345,
-      "label": "Burkholderiaceae"
-    },
-    {
-      "name": "f__Comamonadaceae",
-      "rank": "Family",
-      "percent": 1.6626767753961027,
-      "value": 1.6626767753961027,
-      "label": "Comamonadaceae"
-    },
-    {
-      "name": "c__Gammaproteobacteria",
-      "rank": "Class",
-      "percent": 7.0164385932068445,
-      "value": 7.0164385932068445,
-      "label": "Gammaproteobacteria"
-    },
-    {
-      "name": "o__Pseudomonadales",
-      "rank": "Order",
-      "percent": 2.1426756177699238,
-      "value": 2.1426756177699238,
-      "label": "Pseudomonadales"
-    },
-    {
-      "name": "f__Pseudomonadaceae",
-      "rank": "Family",
-      "percent": 2.071095732368886,
-      "value": 2.071095732368886,
-      "label": "Pseudomonadaceae"
-    },
-    {
-      "name": "g__Pseudomonas",
-      "rank": "Genus",
-      "percent": 1.6764537327867166,
-      "value": 1.6764537327867166,
-      "label": "Pseudomonas"
-    },
-    {
-      "name": "o__Lysobacterales",
-      "rank": "Order",
-      "percent": 1.7699923397705188,
-      "value": 1.7699923397705188,
-      "label": "Lysobacterales"
-    },
-    {
-      "name": "f__Lysobacteraceae",
-      "rank": "Family",
-      "percent": 1.3188919467504017,
-      "value": 1.3188919467504017,
-      "label": "Lysobacteraceae"
-    },
-    {
-      "name": "p__Planctomycetota",
-      "rank": "Phylum",
-      "percent": 3.2516935558507902,
-      "value": 3.2516935558507902,
-      "label": "Planctomycetota"
-    },
-    {
-      "name": "c__Planctomycetia",
-      "rank": "Class",
-      "percent": 3.0999359989484896,
-      "value": 3.0999359989484896,
-      "label": "Planctomycetia"
-    },
-    {
-      "name": "p__Myxococcota",
-      "rank": "Phylum",
-      "percent": 3.2079087573516047,
-      "value": 3.2079087573516047,
-      "label": "Myxococcota"
-    },
-    {
-      "name": "o__Polyangiales",
-      "rank": "Order",
-      "percent": 1.5102137900409782,
-      "value": 1.5102137900409782,
-      "label": "Polyangiales"
-    },
-    {
-      "name": "f__Polyangiaceae",
-      "rank": "Family",
-      "percent": 1.2867376737682812,
-      "value": 1.2867376737682812,
-      "label": "Polyangiaceae"
-    },
-    {
-      "name": "g__Sorangium",
-      "rank": "Genus",
-      "percent": 1.1322488425999198,
-      "value": 1.1322488425999198,
-      "label": "Sorangium"
-    },
-    {
-      "name": "c__Myxococcia",
-      "rank": "Class",
-      "percent": 1.4161023992706956,
-      "value": 1.4161023992706956,
-      "label": "Myxococcia"
-    },
-    {
-      "name": "o__Myxococcales",
-      "rank": "Order",
-      "percent": 1.4161023992706956,
-      "value": 1.4161023992706956,
-      "label": "Myxococcales"
-    },
-    {
-      "name": "p__Bacteroidota",
-      "rank": "Phylum",
-      "percent": 0.9889081927073771,
-      "value": 0.9889081927073771,
-      "label": "Bacteroidota"
-    },
-    {
-      "name": "p__Acidobacteriota",
-      "rank": "Phylum",
-      "percent": 1.0144181737663218,
-      "value": 1.0144181737663218,
-      "label": "Acidobacteriota"
-    },
-    {
-      "name": "k__Bacillati",
+      "name": "k__Bacteria",
       "rank": "Kingdom",
-      "percent": 43.661258080396536,
-      "value": 43.661258080396536,
-      "label": "Bacillati"
+      "percent": 97.06088,
+      "value": 97.06088,
+      "label": "Bacteria"
     },
     {
-      "name": "p__Actinomycetota",
+      "name": "p__Firmicutes",
       "rank": "Phylum",
-      "percent": 40.652002798802464,
-      "value": 40.652002798802464,
-      "label": "Actinomycetota"
+      "percent": 73.94313,
+      "value": 73.94313,
+      "label": "Firmicutes"
     },
     {
-      "name": "c__Actinomycetes",
+      "name": "c__Clostridia",
       "rank": "Class",
-      "percent": 37.42087519553783,
-      "value": 37.42087519553783,
-      "label": "Actinomycetes"
+      "percent": 49.38237,
+      "value": 49.38237,
+      "label": "Clostridia"
     },
     {
-      "name": "o__Kitasatosporales",
+      "name": "o__Clostridia_unclassified",
       "rank": "Order",
-      "percent": 11.83144601075688,
-      "value": 11.83144601075688,
-      "label": "Kitasatosporales"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "f__Streptomycetaceae",
+      "name": "f__Clostridia_unclassified",
       "rank": "Family",
-      "percent": 11.806840425150272,
-      "value": 11.806840425150272,
-      "label": "Streptomycetaceae"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "g__Streptomyces",
+      "name": "g__Clostridia_unclassified",
       "rank": "Genus",
-      "percent": 10.768799442168884,
-      "value": 10.768799442168884,
-      "label": "Streptomyces"
+      "percent": 25.15318,
+      "value": 25.15318,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "o__Micrococcales",
-      "rank": "Order",
-      "percent": 5.915843591438751,
-      "value": 5.915843591438751,
-      "label": "Micrococcales"
+      "name": "s__Clostridia_bacterium",
+      "rank": "Species",
+      "percent": 22.14293,
+      "value": 22.14293,
+      "label": "Clostridia_bacterium"
     },
     {
-      "name": "f__Microbacteriaceae",
-      "rank": "Family",
-      "percent": 2.902982786641356,
-      "value": 2.902982786641356,
-      "label": "Microbacteriaceae"
+      "name": "t__SGB6308",
+      "rank": "Unknown",
+      "percent": 5.85688,
+      "value": 5.85688,
+      "label": "SGB6308"
     },
     {
-      "name": "g__Microbacterium",
+      "name": "t__SGB14111",
+      "rank": "Unknown",
+      "percent": 5.48272,
+      "value": 5.48272,
+      "label": "SGB14111"
+    },
+    {
+      "name": "t__SGB4365",
+      "rank": "Unknown",
+      "percent": 1.7453700000000003,
+      "value": 1.7453700000000003,
+      "label": "SGB4365"
+    },
+    {
+      "name": "t__SGB14311",
+      "rank": "Unknown",
+      "percent": 0.9282,
+      "value": 0.9282,
+      "label": "SGB14311"
+    },
+    {
+      "name": "s__Clostridia_unclassified_SGB13966",
+      "rank": "Species",
+      "percent": 1.07876,
+      "value": 1.07876,
+      "label": "Clostridia_unclassified_SGB13966"
+    },
+    {
+      "name": "t__SGB13966",
+      "rank": "Unknown",
+      "percent": 1.07876,
+      "value": 1.07876,
+      "label": "SGB13966"
+    },
+    {
+      "name": "g__GGB9285",
       "rank": "Genus",
-      "percent": 1.040265795794139,
-      "value": 1.040265795794139,
-      "label": "Microbacterium"
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "GGB9285"
     },
     {
-      "name": "o__Mycobacteriales",
-      "rank": "Order",
-      "percent": 4.2153148517108,
-      "value": 4.2153148517108,
-      "label": "Mycobacteriales"
+      "name": "s__GGB9285_SGB14238",
+      "rank": "Species",
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "GGB9285_SGB14238"
     },
     {
-      "name": "f__Mycobacteriaceae",
-      "rank": "Family",
-      "percent": 1.920960057977778,
-      "value": 1.920960057977778,
-      "label": "Mycobacteriaceae"
+      "name": "t__SGB14238",
+      "rank": "Unknown",
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "SGB14238"
     },
     {
-      "name": "g__Mycolicibacterium",
+      "name": "g__GGB4569",
       "rank": "Genus",
-      "percent": 0.9135539636185827,
-      "value": 0.9135539636185827,
-      "label": "Mycolicibacterium"
+      "percent": 2.33103,
+      "value": 2.33103,
+      "label": "GGB4569"
     },
     {
-      "name": "f__Nocardiaceae",
-      "rank": "Family",
-      "percent": 1.3691401580822957,
-      "value": 1.3691401580822957,
-      "label": "Nocardiaceae"
+      "name": "s__GGB4569_SGB6310",
+      "rank": "Species",
+      "percent": 1.66393,
+      "value": 1.66393,
+      "label": "GGB4569_SGB6310"
     },
     {
-      "name": "o__Micromonosporales",
-      "rank": "Order",
-      "percent": 3.3381356731852474,
-      "value": 3.3381356731852474,
-      "label": "Micromonosporales"
+      "name": "t__SGB6310",
+      "rank": "Unknown",
+      "percent": 1.66393,
+      "value": 1.66393,
+      "label": "SGB6310"
     },
     {
-      "name": "f__Micromonosporaceae",
-      "rank": "Family",
-      "percent": 3.3381356731852474,
-      "value": 3.3381356731852474,
-      "label": "Micromonosporaceae"
-    },
-    {
-      "name": "g__Micromonospora",
+      "name": "g__GGB9059",
       "rank": "Genus",
-      "percent": 1.5499468969136903,
-      "value": 1.5499468969136903,
-      "label": "Micromonospora"
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "GGB9059"
     },
     {
-      "name": "o__Pseudonocardiales",
+      "name": "s__GGB9059_SGB13976",
+      "rank": "Species",
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "GGB9059_SGB13976"
+    },
+    {
+      "name": "t__SGB13976",
+      "rank": "Unknown",
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "SGB13976"
+    },
+    {
+      "name": "o__Clostridiales",
       "rank": "Order",
-      "percent": 2.7595456679005634,
-      "value": 2.7595456679005634,
-      "label": "Pseudonocardiales"
+      "percent": 16.91141,
+      "value": 16.91141,
+      "label": "Clostridiales"
     },
     {
-      "name": "f__Pseudonocardiaceae",
+      "name": "f__Ruminococcaceae",
       "rank": "Family",
-      "percent": 2.7595456679005634,
-      "value": 2.7595456679005634,
-      "label": "Pseudonocardiaceae"
+      "percent": 8.87596,
+      "value": 8.87596,
+      "label": "Ruminococcaceae"
     },
     {
-      "name": "g__Amycolatopsis",
+      "name": "g__Ruminococcaceae_unclassified",
       "rank": "Genus",
-      "percent": 0.933957125023326,
-      "value": 0.933957125023326,
-      "label": "Amycolatopsis"
+      "percent": 3.29784,
+      "value": 3.29784,
+      "label": "Ruminococcaceae_unclassified"
     },
     {
-      "name": "o__Propionibacteriales",
-      "rank": "Order",
-      "percent": 2.5688870479417014,
-      "value": 2.5688870479417014,
-      "label": "Propionibacteriales"
+      "name": "s__Ruminococcaceae_bacterium",
+      "rank": "Species",
+      "percent": 2.74742,
+      "value": 2.74742,
+      "label": "Ruminococcaceae_bacterium"
     },
     {
-      "name": "f__Nocardioidaceae",
-      "rank": "Family",
-      "percent": 1.7649277252374265,
-      "value": 1.7649277252374265,
-      "label": "Nocardioidaceae"
+      "name": "t__SGB15356",
+      "rank": "Unknown",
+      "percent": 0.97702,
+      "value": 0.97702,
+      "label": "SGB15356"
     },
     {
-      "name": "g__Nocardioides",
+      "name": "g__GGB9635",
       "rank": "Genus",
-      "percent": 1.4299275910854343,
-      "value": 1.4299275910854343,
-      "label": "Nocardioides"
+      "percent": 1.53641,
+      "value": 1.53641,
+      "label": "GGB9635"
     },
     {
-      "name": "o__Streptosporangiales",
-      "rank": "Order",
-      "percent": 1.714522752027127,
-      "value": 1.714522752027127,
-      "label": "Streptosporangiales"
+      "name": "s__GGB9635_SGB15100",
+      "rank": "Species",
+      "percent": 1.38697,
+      "value": 1.38697,
+      "label": "GGB9635_SGB15100"
     },
     {
-      "name": "f__Streptosporangiaceae",
+      "name": "t__SGB15100",
+      "rank": "Unknown",
+      "percent": 1.38697,
+      "value": 1.38697,
+      "label": "SGB15100"
+    },
+    {
+      "name": "g__GGB9603",
+      "rank": "Genus",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "GGB9603"
+    },
+    {
+      "name": "s__GGB9603_SGB15035",
+      "rank": "Species",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "GGB9603_SGB15035"
+    },
+    {
+      "name": "t__SGB15035",
+      "rank": "Unknown",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "SGB15035"
+    },
+    {
+      "name": "g__Ruminococcus",
+      "rank": "Genus",
+      "percent": 0.93667,
+      "value": 0.93667,
+      "label": "Ruminococcus"
+    },
+    {
+      "name": "f__Lachnospiraceae",
       "rank": "Family",
-      "percent": 0.9687703206353198,
-      "value": 0.9687703206353198,
-      "label": "Streptosporangiaceae"
+      "percent": 6.83194,
+      "value": 6.83194,
+      "label": "Lachnospiraceae"
     },
     {
-      "name": "c__Thermoleophilia",
-      "rank": "Class",
-      "percent": 1.6178730246872826,
-      "value": 1.6178730246872826,
-      "label": "Thermoleophilia"
+      "name": "g__GGB3733",
+      "rank": "Genus",
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "GGB3733"
     },
     {
-      "name": "o__Solirubrobacterales",
-      "rank": "Order",
-      "percent": 1.3734872855565332,
-      "value": 1.3734872855565332,
-      "label": "Solirubrobacterales"
+      "name": "s__GGB3733_SGB5066",
+      "rank": "Species",
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "GGB3733_SGB5066"
     },
     {
-      "name": "p__Bacillota",
-      "rank": "Phylum",
-      "percent": 1.9540247557152515,
-      "value": 1.9540247557152515,
-      "label": "Bacillota"
+      "name": "t__SGB5066",
+      "rank": "Unknown",
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "SGB5066"
+    },
+    {
+      "name": "g__Butyrivibrio",
+      "rank": "Genus",
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "Butyrivibrio"
+    },
+    {
+      "name": "s__Butyrivibrio_crossotus",
+      "rank": "Species",
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "Butyrivibrio_crossotus"
+    },
+    {
+      "name": "t__SGB5065",
+      "rank": "Unknown",
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "SGB5065"
     },
     {
       "name": "c__Bacilli",
       "rank": "Class",
-      "percent": 1.3563520063862378,
-      "value": 1.3563520063862378,
+      "percent": 21.71949,
+      "value": 21.71949,
       "label": "Bacilli"
     },
     {
-      "name": "o__Bacillales",
+      "name": "o__Bacilli_unclassified",
       "rank": "Order",
-      "percent": 1.252020947004537,
-      "value": 1.252020947004537,
-      "label": "Bacillales"
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "k__Viridiplantae",
-      "rank": "Kingdom",
-      "percent": 3.453711382691017,
-      "value": 3.453711382691017,
-      "label": "Viridiplantae"
-    },
-    {
-      "name": "p__Streptophyta",
-      "rank": "Phylum",
-      "percent": 3.3875940458221003,
-      "value": 3.3875940458221003,
-      "label": "Streptophyta"
-    },
-    {
-      "name": "c__Magnoliopsida",
-      "rank": "Class",
-      "percent": 3.2451577913818954,
-      "value": 3.2451577913818954,
-      "label": "Magnoliopsida"
-    },
-    {
-      "name": "o__Poales",
-      "rank": "Order",
-      "percent": 1.2438150656003242,
-      "value": 1.2438150656003242,
-      "label": "Poales"
-    },
-    {
-      "name": "f__Poaceae",
+      "name": "f__Bacilli_unclassified",
       "rank": "Family",
-      "percent": 1.211232712104097,
-      "value": 1.211232712104097,
-      "label": "Poaceae"
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "k__Methanobacteriati",
-      "rank": "Kingdom",
-      "percent": 1.1143960763707697,
-      "value": 1.1143960763707697,
-      "label": "Methanobacteriati"
+      "name": "g__Bacilli_unclassified",
+      "rank": "Genus",
+      "percent": 14.839440000000002,
+      "value": 14.839440000000002,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "p__Methanobacteriota",
-      "rank": "Phylum",
-      "percent": 1.1116889193167714,
-      "value": 1.1116889193167714,
-      "label": "Methanobacteriota"
+      "name": "s__Bacilli_bacterium",
+      "rank": "Species",
+      "percent": 8.19042,
+      "value": 8.19042,
+      "label": "Bacilli_bacterium"
     },
     {
-      "name": "c__Halobacteria",
+      "name": "t__SGB6494",
+      "rank": "Unknown",
+      "percent": 2.42002,
+      "value": 2.42002,
+      "label": "SGB6494"
+    },
+    {
+      "name": "t__SGB6486",
+      "rank": "Unknown",
+      "percent": 1.93482,
+      "value": 1.93482,
+      "label": "SGB6486"
+    },
+    {
+      "name": "t__SGB6510",
+      "rank": "Unknown",
+      "percent": 1.01927,
+      "value": 1.01927,
+      "label": "SGB6510"
+    },
+    {
+      "name": "s__Bacilli_unclassified_SGB6493",
+      "rank": "Species",
+      "percent": 4.5072,
+      "value": 4.5072,
+      "label": "Bacilli_unclassified_SGB6493"
+    },
+    {
+      "name": "t__SGB6493",
+      "rank": "Unknown",
+      "percent": 4.5072,
+      "value": 4.5072,
+      "label": "SGB6493"
+    },
+    {
+      "name": "s__Bacilli_unclassified_SGB6478",
+      "rank": "Species",
+      "percent": 1.02616,
+      "value": 1.02616,
+      "label": "Bacilli_unclassified_SGB6478"
+    },
+    {
+      "name": "t__SGB6478",
+      "rank": "Unknown",
+      "percent": 1.02616,
+      "value": 1.02616,
+      "label": "SGB6478"
+    },
+    {
+      "name": "g__GGB4641",
+      "rank": "Genus",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "GGB4641"
+    },
+    {
+      "name": "s__GGB4641_SGB6420",
+      "rank": "Species",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "GGB4641_SGB6420"
+    },
+    {
+      "name": "t__SGB6420",
+      "rank": "Unknown",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "SGB6420"
+    },
+    {
+      "name": "c__Erysipelotrichia",
       "rank": "Class",
-      "percent": 1.0281107209147176,
-      "value": 1.0281107209147176,
-      "label": "Halobacteria"
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichia"
     },
     {
-      "name": "o__Halobacteriales",
+      "name": "o__Erysipelotrichales",
       "rank": "Order",
-      "percent": 1.0281107209147176,
-      "value": 1.0281107209147176,
-      "label": "Halobacteriales"
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichales"
+    },
+    {
+      "name": "f__Erysipelotrichaceae",
+      "rank": "Family",
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichaceae"
+    },
+    {
+      "name": "g__Catenibacterium",
+      "rank": "Genus",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "Catenibacterium"
+    },
+    {
+      "name": "s__Catenibacterium_sp_AM22_15",
+      "rank": "Species",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "Catenibacterium_sp_AM22_15"
+    },
+    {
+      "name": "t__SGB6783_group",
+      "rank": "Unknown",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "SGB6783_group"
+    },
+    {
+      "name": "c__Negativicutes",
+      "rank": "Class",
+      "percent": 0.99571,
+      "value": 0.99571,
+      "label": "Negativicutes"
+    },
+    {
+      "name": "o__Veillonellales",
+      "rank": "Order",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "Veillonellales"
+    },
+    {
+      "name": "f__Veillonellaceae",
+      "rank": "Family",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "Veillonellaceae"
+    },
+    {
+      "name": "g__GGB4266",
+      "rank": "Genus",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "GGB4266"
+    },
+    {
+      "name": "s__GGB4266_SGB5809",
+      "rank": "Species",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "GGB4266_SGB5809"
+    },
+    {
+      "name": "t__SGB5809_group",
+      "rank": "Unknown",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "SGB5809_group"
+    },
+    {
+      "name": "p__Bacteroidetes",
+      "rank": "Phylum",
+      "percent": 13.08945,
+      "value": 13.08945,
+      "label": "Bacteroidetes"
+    },
+    {
+      "name": "c__Bacteroidia",
+      "rank": "Class",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidia"
+    },
+    {
+      "name": "o__Bacteroidales",
+      "rank": "Order",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidales"
+    },
+    {
+      "name": "f__Rikenellaceae",
+      "rank": "Family",
+      "percent": 7.6702699999999995,
+      "value": 7.6702699999999995,
+      "label": "Rikenellaceae"
+    },
+    {
+      "name": "g__Rikenellaceae_unclassified",
+      "rank": "Genus",
+      "percent": 7.605529999999999,
+      "value": 7.605529999999999,
+      "label": "Rikenellaceae_unclassified"
+    },
+    {
+      "name": "s__Rikenellaceae_unclassified_SGB2230",
+      "rank": "Species",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "Rikenellaceae_unclassified_SGB2230"
+    },
+    {
+      "name": "t__SGB2230",
+      "rank": "Unknown",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "SGB2230"
+    },
+    {
+      "name": "s__Rikenellaceae_bacterium",
+      "rank": "Species",
+      "percent": 2.6071,
+      "value": 2.6071,
+      "label": "Rikenellaceae_bacterium"
+    },
+    {
+      "name": "t__SGB2241",
+      "rank": "Unknown",
+      "percent": 1.5463,
+      "value": 1.5463,
+      "label": "SGB2241"
+    },
+    {
+      "name": "t__SGB2215",
+      "rank": "Unknown",
+      "percent": 1.06079,
+      "value": 1.06079,
+      "label": "SGB2215"
+    },
+    {
+      "name": "f__Bacteroidales_unclassified",
+      "rank": "Family",
+      "percent": 4.39059,
+      "value": 4.39059,
+      "label": "Bacteroidales_unclassified"
+    },
+    {
+      "name": "g__Phocaeicola",
+      "rank": "Genus",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "Phocaeicola"
+    },
+    {
+      "name": "s__Phocaeicola_vulgatus",
+      "rank": "Species",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "Phocaeicola_vulgatus"
+    },
+    {
+      "name": "t__SGB1814",
+      "rank": "Unknown",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "SGB1814"
+    },
+    {
+      "name": "p__Proteobacteria",
+      "rank": "Phylum",
+      "percent": 6.85062,
+      "value": 6.85062,
+      "label": "Proteobacteria"
+    },
+    {
+      "name": "c__CFGB1062",
+      "rank": "Class",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "CFGB1062"
+    },
+    {
+      "name": "o__OFGB1062",
+      "rank": "Order",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "OFGB1062"
+    },
+    {
+      "name": "f__FGB1062",
+      "rank": "Family",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "FGB1062"
+    },
+    {
+      "name": "g__GGB2734",
+      "rank": "Genus",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "GGB2734"
+    },
+    {
+      "name": "s__GGB2734_SGB3677",
+      "rank": "Species",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "GGB2734_SGB3677"
+    },
+    {
+      "name": "t__SGB3677",
+      "rank": "Unknown",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "SGB3677"
+    },
+    {
+      "name": "p__Actinobacteria",
+      "rank": "Phylum",
+      "percent": 1.8499100000000002,
+      "value": 1.8499100000000002,
+      "label": "Actinobacteria"
+    },
+    {
+      "name": "c__Actinobacteria",
+      "rank": "Class",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Actinobacteria"
+    },
+    {
+      "name": "o__Bifidobacteriales",
+      "rank": "Order",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacteriales"
+    },
+    {
+      "name": "f__Bifidobacteriaceae",
+      "rank": "Family",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacteriaceae"
+    },
+    {
+      "name": "g__Bifidobacterium",
+      "rank": "Genus",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacterium"
     }
   ],
   "links": [
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Pseudomonadota",
-      "rel": 6323886,
-      "value": 38.128624930022404
+      "source": "k__Bacteria",
+      "target": "p__Firmicutes",
+      "rel": 73.94313,
+      "value": 73.94313
     },
     {
-      "source": "p__Pseudomonadota",
-      "target": "c__Alphaproteobacteria",
-      "rel": 3478459,
-      "value": 20.972683338292438
+      "source": "k__Bacteria",
+      "target": "p__Bacteroidetes",
+      "rel": 13.08945,
+      "value": 13.08945
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Hyphomicrobiales",
-      "rel": 2122436,
-      "value": 12.796809775188391
+      "source": "k__Bacteria",
+      "target": "p__Actinobacteria",
+      "rel": 1.84991,
+      "value": 1.8499100000000002
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Nitrobacteraceae",
-      "rel": 669519,
-      "value": 4.0367329256921565
+      "source": "k__Bacteria",
+      "target": "p__Proteobacteria",
+      "rel": 6.85062,
+      "value": 6.85062
     },
     {
-      "source": "f__Nitrobacteraceae",
-      "target": "g__Bradyrhizobium",
-      "rel": 536470,
-      "value": 3.234540188771448
+      "source": "k__Archaea",
+      "target": "p__Euryarchaeota",
+      "rel": 2.93912,
+      "value": 2.93912
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Rhizobiaceae",
-      "rel": 315626,
-      "value": 1.9030047935973626
+      "source": "p__Firmicutes",
+      "target": "c__Clostridia",
+      "rel": 49.38237,
+      "value": 49.38237
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Phyllobacteriaceae",
-      "rel": 221324,
-      "value": 1.334429460621567
+      "source": "p__Bacteroidetes",
+      "target": "c__Bacteroidia",
+      "rel": 12.64928,
+      "value": 12.64928
     },
     {
-      "source": "f__Phyllobacteriaceae",
-      "target": "g__Mesorhizobium",
-      "rel": 170315,
-      "value": 1.0268807430995381
+      "source": "p__Firmicutes",
+      "target": "c__Negativicutes",
+      "rel": 0.99571,
+      "value": 0.99571
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Methylobacteriaceae",
-      "rel": 158724,
-      "value": 0.95699509184588
+      "source": "p__Actinobacteria",
+      "target": "c__Actinobacteria",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Sphingomonadales",
-      "rel": 412759,
-      "value": 2.4886490834102823
-    },
-    {
-      "source": "o__Sphingomonadales",
-      "target": "f__Sphingomonadaceae",
-      "rel": 212603,
-      "value": 1.281847909022641
-    },
-    {
-      "source": "f__Sphingomonadaceae",
-      "target": "g__Sphingomonas",
-      "rel": 164743,
-      "value": 0.9932854666966926
-    },
-    {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Rhodobacterales",
-      "rel": 285552,
-      "value": 1.7216795347066278
-    },
-    {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Rhodospirillales",
-      "rel": 202297,
-      "value": 1.2197099121440111
-    },
-    {
-      "source": "p__Pseudomonadota",
-      "target": "c__Betaproteobacteria",
-      "rel": 1344182,
-      "value": 8.104480586096487
-    },
-    {
-      "source": "c__Betaproteobacteria",
-      "target": "o__Burkholderiales",
-      "rel": 1109867,
-      "value": 6.691724449999442
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Burkholderiaceae",
-      "rel": 393900,
-      "value": 2.374942457839345
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Comamonadaceae",
-      "rel": 275766,
-      "value": 1.6626767753961027
-    },
-    {
-      "source": "p__Pseudomonadota",
-      "target": "c__Gammaproteobacteria",
-      "rel": 1163723,
-      "value": 7.0164385932068445
-    },
-    {
-      "source": "c__Gammaproteobacteria",
-      "target": "o__Pseudomonadales",
-      "rel": 355377,
-      "value": 2.1426756177699238
-    },
-    {
-      "source": "o__Pseudomonadales",
-      "target": "f__Pseudomonadaceae",
-      "rel": 343505,
-      "value": 2.071095732368886
-    },
-    {
-      "source": "f__Pseudomonadaceae",
-      "target": "g__Pseudomonas",
-      "rel": 278051,
-      "value": 1.6764537327867166
-    },
-    {
-      "source": "c__Gammaproteobacteria",
-      "target": "o__Lysobacterales",
-      "rel": 293565,
-      "value": 1.7699923397705188
-    },
-    {
-      "source": "o__Lysobacterales",
-      "target": "f__Lysobacteraceae",
-      "rel": 218747,
-      "value": 1.3188919467504017
-    },
-    {
-      "source": "k__Pseudomonadati",
-      "target": "p__Planctomycetota",
-      "rel": 539315,
-      "value": 3.2516935558507902
-    },
-    {
-      "source": "p__Planctomycetota",
-      "target": "c__Planctomycetia",
-      "rel": 514145,
-      "value": 3.0999359989484896
-    },
-    {
-      "source": "k__Pseudomonadati",
-      "target": "p__Myxococcota",
-      "rel": 532053,
-      "value": 3.2079087573516047
-    },
-    {
-      "source": "p__Myxococcota",
-      "target": "o__Polyangiales",
-      "rel": 250479,
-      "value": 1.5102137900409782
-    },
-    {
-      "source": "o__Polyangiales",
-      "target": "f__Polyangiaceae",
-      "rel": 213414,
-      "value": 1.2867376737682812
-    },
-    {
-      "source": "f__Polyangiaceae",
-      "target": "g__Sorangium",
-      "rel": 187791,
-      "value": 1.1322488425999198
-    },
-    {
-      "source": "p__Myxococcota",
-      "target": "c__Myxococcia",
-      "rel": 234870,
-      "value": 1.4161023992706956
-    },
-    {
-      "source": "c__Myxococcia",
-      "target": "o__Myxococcales",
-      "rel": 234870,
-      "value": 1.4161023992706956
-    },
-    {
-      "source": "k__Pseudomonadati",
-      "target": "p__Bacteroidota",
-      "rel": 164017,
-      "value": 0.9889081927073771
-    },
-    {
-      "source": "k__Pseudomonadati",
-      "target": "p__Acidobacteriota",
-      "rel": 168248,
-      "value": 1.0144181737663218
-    },
-    {
-      "source": "k__Bacillati",
-      "target": "p__Actinomycetota",
-      "rel": 6742405,
-      "value": 40.652002798802464
-    },
-    {
-      "source": "p__Actinomycetota",
-      "target": "c__Actinomycetes",
-      "rel": 6206501,
-      "value": 37.42087519553783
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Kitasatosporales",
-      "rel": 1962324,
-      "value": 11.83144601075688
-    },
-    {
-      "source": "o__Kitasatosporales",
-      "target": "f__Streptomycetaceae",
-      "rel": 1958243,
-      "value": 11.806840425150272
-    },
-    {
-      "source": "f__Streptomycetaceae",
-      "target": "g__Streptomyces",
-      "rel": 1786077,
-      "value": 10.768799442168884
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Micrococcales",
-      "rel": 981182,
-      "value": 5.915843591438751
-    },
-    {
-      "source": "o__Micrococcales",
-      "target": "f__Microbacteriaceae",
-      "rel": 481479,
-      "value": 2.902982786641356
-    },
-    {
-      "source": "f__Microbacteriaceae",
-      "target": "g__Microbacterium",
-      "rel": 172535,
-      "value": 1.040265795794139
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Mycobacteriales",
-      "rel": 699138,
-      "value": 4.2153148517108
-    },
-    {
-      "source": "o__Mycobacteriales",
-      "target": "f__Mycobacteriaceae",
-      "rel": 318604,
-      "value": 1.920960057977778
-    },
-    {
-      "source": "f__Mycobacteriaceae",
-      "target": "g__Mycolicibacterium",
-      "rel": 151519,
-      "value": 0.9135539636185827
-    },
-    {
-      "source": "o__Mycobacteriales",
-      "target": "f__Nocardiaceae",
-      "rel": 227081,
-      "value": 1.3691401580822957
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Micromonosporales",
-      "rel": 553652,
-      "value": 3.3381356731852474
-    },
-    {
-      "source": "o__Micromonosporales",
-      "target": "f__Micromonosporaceae",
-      "rel": 553652,
-      "value": 3.3381356731852474
-    },
-    {
-      "source": "f__Micromonosporaceae",
-      "target": "g__Micromonospora",
-      "rel": 257069,
-      "value": 1.5499468969136903
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Pseudonocardiales",
-      "rel": 457689,
-      "value": 2.7595456679005634
-    },
-    {
-      "source": "o__Pseudonocardiales",
-      "target": "f__Pseudonocardiaceae",
-      "rel": 457689,
-      "value": 2.7595456679005634
-    },
-    {
-      "source": "f__Pseudonocardiaceae",
-      "target": "g__Amycolatopsis",
-      "rel": 154903,
-      "value": 0.933957125023326
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Propionibacteriales",
-      "rel": 426067,
-      "value": 2.5688870479417014
-    },
-    {
-      "source": "o__Propionibacteriales",
-      "target": "f__Nocardioidaceae",
-      "rel": 292725,
-      "value": 1.7649277252374265
-    },
-    {
-      "source": "f__Nocardioidaceae",
-      "target": "g__Nocardioides",
-      "rel": 237163,
-      "value": 1.4299275910854343
-    },
-    {
-      "source": "c__Actinomycetes",
-      "target": "o__Streptosporangiales",
-      "rel": 284365,
-      "value": 1.714522752027127
-    },
-    {
-      "source": "o__Streptosporangiales",
-      "target": "f__Streptosporangiaceae",
-      "rel": 160677,
-      "value": 0.9687703206353198
-    },
-    {
-      "source": "p__Actinomycetota",
-      "target": "c__Thermoleophilia",
-      "rel": 268335,
-      "value": 1.6178730246872826
-    },
-    {
-      "source": "c__Thermoleophilia",
-      "target": "o__Solirubrobacterales",
-      "rel": 227802,
-      "value": 1.3734872855565332
-    },
-    {
-      "source": "k__Bacillati",
-      "target": "p__Bacillota",
-      "rel": 324088,
-      "value": 1.9540247557152515
-    },
-    {
-      "source": "p__Bacillota",
+      "source": "p__Firmicutes",
       "target": "c__Bacilli",
-      "rel": 224960,
-      "value": 1.3563520063862378
+      "rel": 21.71949,
+      "value": 21.71949
+    },
+    {
+      "source": "p__Firmicutes",
+      "target": "c__Erysipelotrichia",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
+    },
+    {
+      "source": "c__Clostridia",
+      "target": "o__Clostridiales",
+      "rel": 16.91141,
+      "value": 16.91141
+    },
+    {
+      "source": "c__Bacteroidia",
+      "target": "o__Bacteroidales",
+      "rel": 12.64928,
+      "value": 12.64928
+    },
+    {
+      "source": "c__Clostridia",
+      "target": "o__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
+    },
+    {
+      "source": "c__Actinobacteria",
+      "target": "o__Bifidobacteriales",
+      "rel": 1.06427,
+      "value": 1.06427
+    },
+    {
+      "source": "c__Negativicutes",
+      "target": "o__Veillonellales",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
     },
     {
       "source": "c__Bacilli",
-      "target": "o__Bacillales",
-      "rel": 207656,
-      "value": 1.252020947004537
+      "target": "o__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
     },
     {
-      "source": "k__Viridiplantae",
-      "target": "p__Streptophyta",
-      "rel": 561855,
-      "value": 3.3875940458221003
+      "source": "c__Erysipelotrichia",
+      "target": "o__Erysipelotrichales",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
     },
     {
-      "source": "p__Streptophyta",
-      "target": "c__Magnoliopsida",
-      "rel": 538231,
-      "value": 3.2451577913818954
+      "source": "o__Clostridiales",
+      "target": "f__Ruminococcaceae",
+      "rel": 8.87596,
+      "value": 8.87596
     },
     {
-      "source": "c__Magnoliopsida",
-      "target": "o__Poales",
-      "rel": 206295,
-      "value": 1.2438150656003242
+      "source": "o__Clostridiales",
+      "target": "f__Lachnospiraceae",
+      "rel": 6.83194,
+      "value": 6.83194
     },
     {
-      "source": "o__Poales",
-      "target": "f__Poaceae",
-      "rel": 200891,
-      "value": 1.211232712104097
+      "source": "o__Clostridia_unclassified",
+      "target": "f__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
     },
     {
-      "source": "k__Methanobacteriati",
-      "target": "p__Methanobacteriota",
-      "rel": 184381,
-      "value": 1.1116889193167714
+      "source": "o__Bacteroidales",
+      "target": "f__Rikenellaceae",
+      "rel": 7.67027,
+      "value": 7.6702699999999995
     },
     {
-      "source": "p__Methanobacteriota",
-      "target": "c__Halobacteria",
-      "rel": 170519,
-      "value": 1.0281107209147176
+      "source": "o__Bifidobacteriales",
+      "target": "f__Bifidobacteriaceae",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "c__Halobacteria",
-      "target": "o__Halobacteriales",
-      "rel": 170519,
-      "value": 1.0281107209147176
+      "source": "o__Veillonellales",
+      "target": "f__Veillonellaceae",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
+    },
+    {
+      "source": "o__Bacilli_unclassified",
+      "target": "f__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
+    },
+    {
+      "source": "o__Bacteroidales",
+      "target": "f__Bacteroidales_unclassified",
+      "rel": 4.39059,
+      "value": 4.39059
+    },
+    {
+      "source": "o__Erysipelotrichales",
+      "target": "f__Erysipelotrichaceae",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
+    },
+    {
+      "source": "f__Ruminococcaceae",
+      "target": "g__Ruminococcaceae_unclassified",
+      "rel": 3.29784,
+      "value": 3.29784
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__Clostridia_unclassified",
+      "rel": 25.15318,
+      "value": 25.15318
+    },
+    {
+      "source": "f__Rikenellaceae",
+      "target": "g__Rikenellaceae_unclassified",
+      "rel": 7.60553,
+      "value": 7.605529999999999
+    },
+    {
+      "source": "f__Bifidobacteriaceae",
+      "target": "g__Bifidobacterium",
+      "rel": 1.06427,
+      "value": 1.06427
+    },
+    {
+      "source": "f__Veillonellaceae",
+      "target": "g__GGB4266",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
+    },
+    {
+      "source": "f__Ruminococcaceae",
+      "target": "g__GGB9635",
+      "rel": 1.53641,
+      "value": 1.53641
+    },
+    {
+      "source": "f__Ruminococcaceae",
+      "target": "g__Ruminococcus",
+      "rel": 0.93667,
+      "value": 0.93667
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB4569",
+      "rel": 2.33103,
+      "value": 2.33103
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__Bacilli_unclassified",
+      "rel": 14.83944,
+      "value": 14.839440000000002
+    },
+    {
+      "source": "f__Lachnospiraceae",
+      "target": "g__Butyrivibrio",
+      "rel": 1.23341,
+      "value": 1.23341
+    },
+    {
+      "source": "f__Lachnospiraceae",
+      "target": "g__GGB3733",
+      "rel": 3.29854,
+      "value": 3.29854
+    },
+    {
+      "source": "f__Bacteroidales_unclassified",
+      "target": "g__Phocaeicola",
+      "rel": 3.58076,
+      "value": 3.58076
+    },
+    {
+      "source": "f__Ruminococcaceae",
+      "target": "g__GGB9603",
+      "rel": 1.0341,
+      "value": 1.0341
+    },
+    {
+      "source": "g__Rikenellaceae_unclassified",
+      "target": "s__Rikenellaceae_unclassified_SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
+    },
+    {
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_bacterium",
+      "rel": 22.14293,
+      "value": 22.14293
+    },
+    {
+      "source": "g__Ruminococcaceae_unclassified",
+      "target": "s__Ruminococcaceae_bacterium",
+      "rel": 2.74742,
+      "value": 2.74742
+    },
+    {
+      "source": "g__GGB4266",
+      "target": "s__GGB4266_SGB5809",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
+    },
+    {
+      "source": "g__GGB9635",
+      "target": "s__GGB9635_SGB15100",
+      "rel": 1.38697,
+      "value": 1.38697
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_bacterium",
+      "rel": 8.19042,
+      "value": 8.19042
+    },
+    {
+      "source": "g__Butyrivibrio",
+      "target": "s__Butyrivibrio_crossotus",
+      "rel": 1.23341,
+      "value": 1.23341
+    },
+    {
+      "source": "g__GGB3733",
+      "target": "s__GGB3733_SGB5066",
+      "rel": 3.29854,
+      "value": 3.29854
+    },
+    {
+      "source": "g__Phocaeicola",
+      "target": "s__Phocaeicola_vulgatus",
+      "rel": 3.58076,
+      "value": 3.58076
+    },
+    {
+      "source": "g__GGB9603",
+      "target": "s__GGB9603_SGB15035",
+      "rel": 1.0341,
+      "value": 1.0341
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_unclassified_SGB6493",
+      "rel": 4.5072,
+      "value": 4.5072
+    },
+    {
+      "source": "s__Rikenellaceae_unclassified_SGB2230",
+      "target": "t__SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
+    },
+    {
+      "source": "s__GGB4266_SGB5809",
+      "target": "t__SGB5809_group",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
+    },
+    {
+      "source": "s__GGB9635_SGB15100",
+      "target": "t__SGB15100",
+      "rel": 1.38697,
+      "value": 1.38697
+    },
+    {
+      "source": "s__Ruminococcaceae_bacterium",
+      "target": "t__SGB15356",
+      "rel": 0.97702,
+      "value": 0.97702
+    },
+    {
+      "source": "s__Butyrivibrio_crossotus",
+      "target": "t__SGB5065",
+      "rel": 1.23341,
+      "value": 1.23341
+    },
+    {
+      "source": "s__GGB3733_SGB5066",
+      "target": "t__SGB5066",
+      "rel": 3.29854,
+      "value": 3.29854
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14311",
+      "rel": 0.9282,
+      "value": 0.9282
+    },
+    {
+      "source": "s__Phocaeicola_vulgatus",
+      "target": "t__SGB1814",
+      "rel": 3.58076,
+      "value": 3.58076
+    },
+    {
+      "source": "s__GGB9603_SGB15035",
+      "target": "t__SGB15035",
+      "rel": 1.0341,
+      "value": 1.0341
+    },
+    {
+      "source": "s__Bacilli_unclassified_SGB6493",
+      "target": "t__SGB6493",
+      "rel": 4.5072,
+      "value": 4.5072
+    },
+    {
+      "source": "p__Proteobacteria",
+      "target": "c__CFGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "c__CFGB1062",
+      "target": "o__OFGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "o__OFGB1062",
+      "target": "f__FGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "f__FGB1062",
+      "target": "g__GGB2734",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "f__Erysipelotrichaceae",
+      "target": "g__Catenibacterium",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "g__GGB2734",
+      "target": "s__GGB2734_SGB3677",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "g__Catenibacterium",
+      "target": "s__Catenibacterium_sp_AM22_15",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "s__GGB2734_SGB3677",
+      "target": "t__SGB3677",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "s__Catenibacterium_sp_AM22_15",
+      "target": "t__SGB6783_group",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "p__Euryarchaeota",
+      "target": "c__CFGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "c__CFGB343",
+      "target": "o__OFGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "o__OFGB343",
+      "target": "f__FGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB9285",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "f__FGB343",
+      "target": "g__GGB781",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4641",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB9059",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "g__GGB9285",
+      "target": "s__GGB9285_SGB14238",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "g__Rikenellaceae_unclassified",
+      "target": "s__Rikenellaceae_bacterium",
+      "rel": 2.6071,
+      "value": 2.6071
+    },
+    {
+      "source": "g__GGB781",
+      "target": "s__GGB781_SGB1024",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "g__GGB4641",
+      "target": "s__GGB4641_SGB6420",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "g__GGB4569",
+      "target": "s__GGB4569_SGB6310",
+      "rel": 1.66393,
+      "value": 1.66393
+    },
+    {
+      "source": "g__GGB9059",
+      "target": "s__GGB9059_SGB13976",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_unclassified_SGB13966",
+      "rel": 1.07876,
+      "value": 1.07876
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_unclassified_SGB6478",
+      "rel": 1.02616,
+      "value": 1.02616
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6308",
+      "rel": 5.85688,
+      "value": 5.85688
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14111",
+      "rel": 5.48272,
+      "value": 5.48272
+    },
+    {
+      "source": "s__GGB9285_SGB14238",
+      "target": "t__SGB14238",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "s__GGB781_SGB1024",
+      "target": "t__SGB1024",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6494",
+      "rel": 2.42002,
+      "value": 2.42002
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6486",
+      "rel": 1.93482,
+      "value": 1.93482
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB4365",
+      "rel": 1.74537,
+      "value": 1.7453700000000003
+    },
+    {
+      "source": "s__GGB4641_SGB6420",
+      "target": "t__SGB6420",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "s__GGB4569_SGB6310",
+      "target": "t__SGB6310",
+      "rel": 1.66393,
+      "value": 1.66393
+    },
+    {
+      "source": "s__Rikenellaceae_bacterium",
+      "target": "t__SGB2241",
+      "rel": 1.5463,
+      "value": 1.5463
+    },
+    {
+      "source": "s__GGB9059_SGB13976",
+      "target": "t__SGB13976",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "s__Clostridia_unclassified_SGB13966",
+      "target": "t__SGB13966",
+      "rel": 1.07876,
+      "value": 1.07876
+    },
+    {
+      "source": "s__Rikenellaceae_bacterium",
+      "target": "t__SGB2215",
+      "rel": 1.06079,
+      "value": 1.06079
+    },
+    {
+      "source": "s__Bacilli_unclassified_SGB6478",
+      "target": "t__SGB6478",
+      "rel": 1.02616,
+      "value": 1.02616
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6510",
+      "rel": 1.01927,
+      "value": 1.01927
     }
   ]
 }
@@ -1192,1445 +1742,2204 @@
  {
   "nodes": [
     {
-      "name": "k__Pseudomonadati",
+      "name": "k__Archaea",
       "rank": "Kingdom",
-      "percent": 50.142493532818854,
-      "value": 50.142493532818854,
-      "label": "Pseudomonadati"
+      "percent": 2.93912,
+      "value": 2.93912,
+      "label": "Archaea"
     },
     {
-      "name": "p__Pseudomonadota",
+      "name": "p__Euryarchaeota",
       "rank": "Phylum",
-      "percent": 38.128624930022404,
-      "value": 38.128624930022404,
-      "label": "Pseudomonadota"
+      "percent": 2.93912,
+      "value": 2.93912,
+      "label": "Euryarchaeota"
     },
     {
-      "name": "c__Alphaproteobacteria",
+      "name": "c__CFGB343",
       "rank": "Class",
-      "percent": 20.972683338292438,
-      "value": 20.972683338292438,
-      "label": "Alphaproteobacteria"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "CFGB343"
     },
     {
-      "name": "o__Hyphomicrobiales",
+      "name": "o__OFGB343",
       "rank": "Order",
-      "percent": 12.796809775188391,
-      "value": 12.796809775188391,
-      "label": "Hyphomicrobiales"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "OFGB343"
     },
     {
-      "name": "f__Nitrobacteraceae",
+      "name": "f__FGB343",
       "rank": "Family",
-      "percent": 4.0367329256921565,
-      "value": 4.0367329256921565,
-      "label": "Nitrobacteraceae"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "FGB343"
     },
     {
-      "name": "g__Bradyrhizobium",
+      "name": "g__GGB781",
       "rank": "Genus",
-      "percent": 3.234540188771448,
-      "value": 3.234540188771448,
-      "label": "Bradyrhizobium"
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "GGB781"
     },
     {
-      "name": "f__Rhizobiaceae",
-      "rank": "Family",
-      "percent": 1.9030047935973626,
-      "value": 1.9030047935973626,
-      "label": "Rhizobiaceae"
+      "name": "s__GGB781_SGB1024",
+      "rank": "Species",
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "GGB781_SGB1024"
     },
     {
-      "name": "g__Rhizobium",
-      "rank": "Genus",
-      "percent": 0.6243343272639355,
-      "value": 0.6243343272639355,
-      "label": "Rhizobium"
+      "name": "t__SGB1024",
+      "rank": "Unknown",
+      "percent": 2.45697,
+      "value": 2.45697,
+      "label": "SGB1024"
     },
     {
-      "name": "f__Phyllobacteriaceae",
-      "rank": "Family",
-      "percent": 1.334429460621567,
-      "value": 1.334429460621567,
-      "label": "Phyllobacteriaceae"
-    },
-    {
-      "name": "g__Mesorhizobium",
-      "rank": "Genus",
-      "percent": 1.0268807430995381,
-      "value": 1.0268807430995381,
-      "label": "Mesorhizobium"
-    },
-    {
-      "name": "f__Methylobacteriaceae",
-      "rank": "Family",
-      "percent": 0.95699509184588,
-      "value": 0.95699509184588,
-      "label": "Methylobacteriaceae"
-    },
-    {
-      "name": "g__Methylobacterium",
-      "rank": "Genus",
-      "percent": 0.548383197176598,
-      "value": 0.548383197176598,
-      "label": "Methylobacterium"
-    },
-    {
-      "name": "o__Sphingomonadales",
-      "rank": "Order",
-      "percent": 2.4886490834102823,
-      "value": 2.4886490834102823,
-      "label": "Sphingomonadales"
-    },
-    {
-      "name": "f__Sphingomonadaceae",
-      "rank": "Family",
-      "percent": 1.281847909022641,
-      "value": 1.281847909022641,
-      "label": "Sphingomonadaceae"
-    },
-    {
-      "name": "g__Sphingomonas",
-      "rank": "Genus",
-      "percent": 0.9932854666966926,
-      "value": 0.9932854666966926,
-      "label": "Sphingomonas"
-    },
-    {
-      "name": "o__Rhodobacterales",
-      "rank": "Order",
-      "percent": 1.7216795347066278,
-      "value": 1.7216795347066278,
-      "label": "Rhodobacterales"
-    },
-    {
-      "name": "f__Paracoccaceae",
-      "rank": "Family",
-      "percent": 0.8894910152833788,
-      "value": 0.8894910152833788,
-      "label": "Paracoccaceae"
-    },
-    {
-      "name": "f__Roseobacteraceae",
-      "rank": "Family",
-      "percent": 0.6861648296887705,
-      "value": 0.6861648296887705,
-      "label": "Roseobacteraceae"
-    },
-    {
-      "name": "o__Rhodospirillales",
-      "rank": "Order",
-      "percent": 1.2197099121440111,
-      "value": 1.2197099121440111,
-      "label": "Rhodospirillales"
-    },
-    {
-      "name": "f__Azospirillaceae",
-      "rank": "Family",
-      "percent": 0.5639749747749034,
-      "value": 0.5639749747749034,
-      "label": "Azospirillaceae"
-    },
-    {
-      "name": "o__Acetobacterales",
-      "rank": "Order",
-      "percent": 0.6577909296974225,
-      "value": 0.6577909296974225,
-      "label": "Acetobacterales"
-    },
-    {
-      "name": "o__Caulobacterales",
-      "rank": "Order",
-      "percent": 0.6292904143427471,
-      "value": 0.6292904143427471,
-      "label": "Caulobacterales"
-    },
-    {
-      "name": "f__Caulobacteraceae",
-      "rank": "Family",
-      "percent": 0.6292904143427471,
-      "value": 0.6292904143427471,
-      "label": "Caulobacteraceae"
-    },
-    {
-      "name": "c__Betaproteobacteria",
-      "rank": "Class",
-      "percent": 8.104480586096487,
-      "value": 8.104480586096487,
-      "label": "Betaproteobacteria"
-    },
-    {
-      "name": "o__Burkholderiales",
-      "rank": "Order",
-      "percent": 6.691724449999442,
-      "value": 6.691724449999442,
-      "label": "Burkholderiales"
-    },
-    {
-      "name": "f__Burkholderiaceae",
-      "rank": "Family",
-      "percent": 2.374942457839345,
-      "value": 2.374942457839345,
-      "label": "Burkholderiaceae"
-    },
-    {
-      "name": "g__Burkholderia",
-      "rank": "Genus",
-      "percent": 0.7923107092781628,
-      "value": 0.7923107092781628,
-      "label": "Burkholderia"
-    },
-    {
-      "name": "g__Cupriavidus",
-      "rank": "Genus",
-      "percent": 0.5061238123403554,
-      "value": 0.5061238123403554,
-      "label": "Cupriavidus"
-    },
-    {
-      "name": "f__Comamonadaceae",
-      "rank": "Family",
-      "percent": 1.6626767753961027,
-      "value": 1.6626767753961027,
-      "label": "Comamonadaceae"
-    },
-    {
-      "name": "g__Variovorax",
-      "rank": "Genus",
-      "percent": 0.6050767334321536,
-      "value": 0.6050767334321536,
-      "label": "Variovorax"
-    },
-    {
-      "name": "f__Oxalobacteraceae",
-      "rank": "Family",
-      "percent": 0.8171815842174553,
-      "value": 0.8171815842174553,
-      "label": "Oxalobacteraceae"
-    },
-    {
-      "name": "f__Sphaerotilaceae",
-      "rank": "Family",
-      "percent": 0.6811906547009119,
-      "value": 0.6811906547009119,
-      "label": "Sphaerotilaceae"
-    },
-    {
-      "name": "f__Alcaligenaceae",
-      "rank": "Family",
-      "percent": 0.5937657609749142,
-      "value": 0.5937657609749142,
-      "label": "Alcaligenaceae"
-    },
-    {
-      "name": "o__Rhodocyclales",
-      "rank": "Order",
-      "percent": 0.5235002636312743,
-      "value": 0.5235002636312743,
-      "label": "Rhodocyclales"
-    },
-    {
-      "name": "c__Gammaproteobacteria",
-      "rank": "Class",
-      "percent": 7.0164385932068445,
-      "value": 7.0164385932068445,
-      "label": "Gammaproteobacteria"
-    },
-    {
-      "name": "o__Pseudomonadales",
-      "rank": "Order",
-      "percent": 2.1426756177699238,
-      "value": 2.1426756177699238,
-      "label": "Pseudomonadales"
-    },
-    {
-      "name": "f__Pseudomonadaceae",
-      "rank": "Family",
-      "percent": 2.071095732368886,
-      "value": 2.071095732368886,
-      "label": "Pseudomonadaceae"
-    },
-    {
-      "name": "g__Pseudomonas",
-      "rank": "Genus",
-      "percent": 1.6764537327867166,
-      "value": 1.6764537327867166,
-      "label": "Pseudomonas"
-    },
-    {
-      "name": "o__Lysobacterales",
-      "rank": "Order",
-      "percent": 1.7699923397705188,
-      "value": 1.7699923397705188,
-      "label": "Lysobacterales"
-    },
-    {
-      "name": "f__Lysobacteraceae",
-      "rank": "Family",
-      "percent": 1.3188919467504017,
-      "value": 1.3188919467504017,
-      "label": "Lysobacteraceae"
-    },
-    {
-      "name": "o__Enterobacterales",
-      "rank": "Order",
-      "percent": 0.7331270708771701,
-      "value": 0.7331270708771701,
-      "label": "Enterobacterales"
-    },
-    {
-      "name": "o__Oceanospirillales",
-      "rank": "Order",
-      "percent": 0.5062866035217762,
-      "value": 0.5062866035217762,
-      "label": "Oceanospirillales"
-    },
-    {
-      "name": "p__Planctomycetota",
-      "rank": "Phylum",
-      "percent": 3.2516935558507902,
-      "value": 3.2516935558507902,
-      "label": "Planctomycetota"
-    },
-    {
-      "name": "c__Planctomycetia",
-      "rank": "Class",
-      "percent": 3.0999359989484896,
-      "value": 3.0999359989484896,
-      "label": "Planctomycetia"
-    },
-    {
-      "name": "o__Gemmatales",
-      "rank": "Order",
-      "percent": 0.8926805165786238,
-      "value": 0.8926805165786238,
-      "label": "Gemmatales"
-    },
-    {
-      "name": "f__Gemmataceae",
-      "rank": "Family",
-      "percent": 0.8926805165786238,
-      "value": 0.8926805165786238,
-      "label": "Gemmataceae"
-    },
-    {
-      "name": "o__Pirellulales",
-      "rank": "Order",
-      "percent": 0.7682236437308966,
-      "value": 0.7682236437308966,
-      "label": "Pirellulales"
-    },
-    {
-      "name": "o__Isosphaerales",
-      "rank": "Order",
-      "percent": 0.6184195810056455,
-      "value": 0.6184195810056455,
-      "label": "Isosphaerales"
-    },
-    {
-      "name": "f__Isosphaeraceae",
-      "rank": "Family",
-      "percent": 0.6184195810056455,
-      "value": 0.6184195810056455,
-      "label": "Isosphaeraceae"
-    },
-    {
-      "name": "o__Planctomycetales",
-      "rank": "Order",
-      "percent": 0.5453866335778517,
-      "value": 0.5453866335778517,
-      "label": "Planctomycetales"
-    },
-    {
-      "name": "f__Planctomycetaceae",
-      "rank": "Family",
-      "percent": 0.5453866335778517,
-      "value": 0.5453866335778517,
-      "label": "Planctomycetaceae"
-    },
-    {
-      "name": "p__Myxococcota",
-      "rank": "Phylum",
-      "percent": 3.2079087573516047,
-      "value": 3.2079087573516047,
-      "label": "Myxococcota"
-    },
-    {
-      "name": "o__Polyangiales",
-      "rank": "Order",
-      "percent": 1.5102137900409782,
-      "value": 1.5102137900409782,
-      "label": "Polyangiales"
-    },
-    {
-      "name": "f__Polyangiaceae",
-      "rank": "Family",
-      "percent": 1.2867376737682812,
-      "value": 1.2867376737682812,
-      "label": "Polyangiaceae"
-    },
-    {
-      "name": "g__Sorangium",
-      "rank": "Genus",
-      "percent": 1.1322488425999198,
-      "value": 1.1322488425999198,
-      "label": "Sorangium"
-    },
-    {
-      "name": "c__Myxococcia",
-      "rank": "Class",
-      "percent": 1.4161023992706956,
-      "value": 1.4161023992706956,
-      "label": "Myxococcia"
-    },
-    {
-      "name": "o__Myxococcales",
-      "rank": "Order",
-      "percent": 1.4161023992706956,
-      "value": 1.4161023992706956,
-      "label": "Myxococcales"
-    },
-    {
-      "name": "p__Bacteroidota",
-      "rank": "Phylum",
-      "percent": 0.9889081927073771,
-      "value": 0.9889081927073771,
-      "label": "Bacteroidota"
-    },
-    {
-      "name": "p__Acidobacteriota",
-      "rank": "Phylum",
-      "percent": 1.0144181737663218,
-      "value": 1.0144181737663218,
-      "label": "Acidobacteriota"
-    },
-    {
-      "name": "p__Thermodesulfobacteriota",
-      "rank": "Phylum",
-      "percent": 0.6536427692226993,
-      "value": 0.6536427692226993,
-      "label": "Thermodesulfobacteriota"
-    },
-    {
-      "name": "k__Bacillati",
+      "name": "k__Bacteria",
       "rank": "Kingdom",
-      "percent": 43.661258080396536,
-      "value": 43.661258080396536,
-      "label": "Bacillati"
+      "percent": 97.06088,
+      "value": 97.06088,
+      "label": "Bacteria"
     },
     {
-      "name": "p__Actinomycetota",
+      "name": "p__Firmicutes",
       "rank": "Phylum",
-      "percent": 40.652002798802464,
-      "value": 40.652002798802464,
-      "label": "Actinomycetota"
+      "percent": 73.94313,
+      "value": 73.94313,
+      "label": "Firmicutes"
     },
     {
-      "name": "c__Actinomycetes",
+      "name": "c__Clostridia",
       "rank": "Class",
-      "percent": 37.42087519553783,
-      "value": 37.42087519553783,
-      "label": "Actinomycetes"
+      "percent": 49.38237,
+      "value": 49.38237,
+      "label": "Clostridia"
     },
     {
-      "name": "o__Kitasatosporales",
+      "name": "o__Clostridia_unclassified",
       "rank": "Order",
-      "percent": 11.83144601075688,
-      "value": 11.83144601075688,
-      "label": "Kitasatosporales"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "f__Streptomycetaceae",
+      "name": "f__Clostridia_unclassified",
       "rank": "Family",
-      "percent": 11.806840425150272,
-      "value": 11.806840425150272,
-      "label": "Streptomycetaceae"
+      "percent": 32.47097,
+      "value": 32.47097,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "g__Streptomyces",
+      "name": "g__Clostridia_unclassified",
       "rank": "Genus",
-      "percent": 10.768799442168884,
-      "value": 10.768799442168884,
-      "label": "Streptomyces"
+      "percent": 25.15318,
+      "value": 25.15318,
+      "label": "Clostridia_unclassified"
     },
     {
-      "name": "g__Kitasatospora",
+      "name": "s__Clostridia_bacterium",
+      "rank": "Species",
+      "percent": 22.14293,
+      "value": 22.14293,
+      "label": "Clostridia_bacterium"
+    },
+    {
+      "name": "t__SGB6308",
+      "rank": "Unknown",
+      "percent": 5.85688,
+      "value": 5.85688,
+      "label": "SGB6308"
+    },
+    {
+      "name": "t__SGB14111",
+      "rank": "Unknown",
+      "percent": 5.48272,
+      "value": 5.48272,
+      "label": "SGB14111"
+    },
+    {
+      "name": "t__SGB4365",
+      "rank": "Unknown",
+      "percent": 1.7453700000000003,
+      "value": 1.7453700000000003,
+      "label": "SGB4365"
+    },
+    {
+      "name": "t__SGB14311",
+      "rank": "Unknown",
+      "percent": 0.9282,
+      "value": 0.9282,
+      "label": "SGB14311"
+    },
+    {
+      "name": "t__SGB14240",
+      "rank": "Unknown",
+      "percent": 0.87717,
+      "value": 0.87717,
+      "label": "SGB14240"
+    },
+    {
+      "name": "t__SGB6301",
+      "rank": "Unknown",
+      "percent": 0.80004,
+      "value": 0.80004,
+      "label": "SGB6301"
+    },
+    {
+      "name": "t__SGB6290",
+      "rank": "Unknown",
+      "percent": 0.71244,
+      "value": 0.71244,
+      "label": "SGB6290"
+    },
+    {
+      "name": "t__SGB15408",
+      "rank": "Unknown",
+      "percent": 0.61183,
+      "value": 0.61183,
+      "label": "SGB15408"
+    },
+    {
+      "name": "t__SGB14084",
+      "rank": "Unknown",
+      "percent": 0.51717,
+      "value": 0.51717,
+      "label": "SGB14084"
+    },
+    {
+      "name": "t__SGB6249",
+      "rank": "Unknown",
+      "percent": 0.49279,
+      "value": 0.49279,
+      "label": "SGB6249"
+    },
+    {
+      "name": "s__Clostridia_unclassified_SGB13966",
+      "rank": "Species",
+      "percent": 1.07876,
+      "value": 1.07876,
+      "label": "Clostridia_unclassified_SGB13966"
+    },
+    {
+      "name": "t__SGB13966",
+      "rank": "Unknown",
+      "percent": 1.07876,
+      "value": 1.07876,
+      "label": "SGB13966"
+    },
+    {
+      "name": "s__Clostridia_unclassified_SGB6293",
+      "rank": "Species",
+      "percent": 0.70755,
+      "value": 0.70755,
+      "label": "Clostridia_unclassified_SGB6293"
+    },
+    {
+      "name": "t__SGB6293",
+      "rank": "Unknown",
+      "percent": 0.70755,
+      "value": 0.70755,
+      "label": "SGB6293"
+    },
+    {
+      "name": "g__GGB9285",
       "rank": "Genus",
-      "percent": 0.5318146724897675,
-      "value": 0.5318146724897675,
-      "label": "Kitasatospora"
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "GGB9285"
     },
     {
-      "name": "o__Micrococcales",
+      "name": "s__GGB9285_SGB14238",
+      "rank": "Species",
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "GGB9285_SGB14238"
+    },
+    {
+      "name": "t__SGB14238",
+      "rank": "Unknown",
+      "percent": 2.74289,
+      "value": 2.74289,
+      "label": "SGB14238"
+    },
+    {
+      "name": "g__GGB4569",
+      "rank": "Genus",
+      "percent": 2.33103,
+      "value": 2.33103,
+      "label": "GGB4569"
+    },
+    {
+      "name": "s__GGB4569_SGB6310",
+      "rank": "Species",
+      "percent": 1.66393,
+      "value": 1.66393,
+      "label": "GGB4569_SGB6310"
+    },
+    {
+      "name": "t__SGB6310",
+      "rank": "Unknown",
+      "percent": 1.66393,
+      "value": 1.66393,
+      "label": "SGB6310"
+    },
+    {
+      "name": "s__GGB4569_SGB6311",
+      "rank": "Species",
+      "percent": 0.6671,
+      "value": 0.6671,
+      "label": "GGB4569_SGB6311"
+    },
+    {
+      "name": "t__SGB6311",
+      "rank": "Unknown",
+      "percent": 0.6671,
+      "value": 0.6671,
+      "label": "SGB6311"
+    },
+    {
+      "name": "g__GGB9059",
+      "rank": "Genus",
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "GGB9059"
+    },
+    {
+      "name": "s__GGB9059_SGB13976",
+      "rank": "Species",
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "GGB9059_SGB13976"
+    },
+    {
+      "name": "t__SGB13976",
+      "rank": "Unknown",
+      "percent": 1.27685,
+      "value": 1.27685,
+      "label": "SGB13976"
+    },
+    {
+      "name": "o__Clostridiales",
       "rank": "Order",
-      "percent": 5.915843591438751,
-      "value": 5.915843591438751,
-      "label": "Micrococcales"
+      "percent": 16.91141,
+      "value": 16.91141,
+      "label": "Clostridiales"
     },
     {
-      "name": "f__Microbacteriaceae",
+      "name": "f__Ruminococcaceae",
       "rank": "Family",
-      "percent": 2.902982786641356,
-      "value": 2.902982786641356,
-      "label": "Microbacteriaceae"
+      "percent": 8.87596,
+      "value": 8.87596,
+      "label": "Ruminococcaceae"
     },
     {
-      "name": "g__Microbacterium",
+      "name": "g__Ruminococcaceae_unclassified",
       "rank": "Genus",
-      "percent": 1.040265795794139,
-      "value": 1.040265795794139,
-      "label": "Microbacterium"
+      "percent": 3.29784,
+      "value": 3.29784,
+      "label": "Ruminococcaceae_unclassified"
     },
     {
-      "name": "f__Micrococcaceae",
+      "name": "s__Ruminococcaceae_bacterium",
+      "rank": "Species",
+      "percent": 2.74742,
+      "value": 2.74742,
+      "label": "Ruminococcaceae_bacterium"
+    },
+    {
+      "name": "t__SGB15356",
+      "rank": "Unknown",
+      "percent": 0.97702,
+      "value": 0.97702,
+      "label": "SGB15356"
+    },
+    {
+      "name": "t__SGB15084",
+      "rank": "Unknown",
+      "percent": 0.68541,
+      "value": 0.68541,
+      "label": "SGB15084"
+    },
+    {
+      "name": "t__SGB15249",
+      "rank": "Unknown",
+      "percent": 0.51446,
+      "value": 0.51446,
+      "label": "SGB15249"
+    },
+    {
+      "name": "g__GGB9635",
+      "rank": "Genus",
+      "percent": 1.53641,
+      "value": 1.53641,
+      "label": "GGB9635"
+    },
+    {
+      "name": "s__GGB9635_SGB15100",
+      "rank": "Species",
+      "percent": 1.38697,
+      "value": 1.38697,
+      "label": "GGB9635_SGB15100"
+    },
+    {
+      "name": "t__SGB15100",
+      "rank": "Unknown",
+      "percent": 1.38697,
+      "value": 1.38697,
+      "label": "SGB15100"
+    },
+    {
+      "name": "g__GGB9603",
+      "rank": "Genus",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "GGB9603"
+    },
+    {
+      "name": "s__GGB9603_SGB15035",
+      "rank": "Species",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "GGB9603_SGB15035"
+    },
+    {
+      "name": "t__SGB15035",
+      "rank": "Unknown",
+      "percent": 1.0341,
+      "value": 1.0341,
+      "label": "SGB15035"
+    },
+    {
+      "name": "g__Ruminococcus",
+      "rank": "Genus",
+      "percent": 0.93667,
+      "value": 0.93667,
+      "label": "Ruminococcus"
+    },
+    {
+      "name": "s__Ruminococcus_sp_NSJ_71",
+      "rank": "Species",
+      "percent": 0.83418,
+      "value": 0.83418,
+      "label": "Ruminococcus_sp_NSJ_71"
+    },
+    {
+      "name": "t__SGB4290",
+      "rank": "Unknown",
+      "percent": 0.83418,
+      "value": 0.83418,
+      "label": "SGB4290"
+    },
+    {
+      "name": "f__Lachnospiraceae",
       "rank": "Family",
-      "percent": 0.828414175735492,
-      "value": 0.828414175735492,
-      "label": "Micrococcaceae"
+      "percent": 6.83194,
+      "value": 6.83194,
+      "label": "Lachnospiraceae"
     },
     {
-      "name": "o__Mycobacteriales",
-      "rank": "Order",
-      "percent": 4.2153148517108,
-      "value": 4.2153148517108,
-      "label": "Mycobacteriales"
-    },
-    {
-      "name": "f__Mycobacteriaceae",
-      "rank": "Family",
-      "percent": 1.920960057977778,
-      "value": 1.920960057977778,
-      "label": "Mycobacteriaceae"
-    },
-    {
-      "name": "g__Mycolicibacterium",
+      "name": "g__GGB3733",
       "rank": "Genus",
-      "percent": 0.9135539636185827,
-      "value": 0.9135539636185827,
-      "label": "Mycolicibacterium"
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "GGB3733"
     },
     {
-      "name": "g__Mycobacterium",
+      "name": "s__GGB3733_SGB5066",
+      "rank": "Species",
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "GGB3733_SGB5066"
+    },
+    {
+      "name": "t__SGB5066",
+      "rank": "Unknown",
+      "percent": 3.29854,
+      "value": 3.29854,
+      "label": "SGB5066"
+    },
+    {
+      "name": "g__Butyrivibrio",
       "rank": "Genus",
-      "percent": 0.7397231283762213,
-      "value": 0.7397231283762213,
-      "label": "Mycobacterium"
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "Butyrivibrio"
     },
     {
-      "name": "f__Nocardiaceae",
-      "rank": "Family",
-      "percent": 1.3691401580822957,
-      "value": 1.3691401580822957,
-      "label": "Nocardiaceae"
+      "name": "s__Butyrivibrio_crossotus",
+      "rank": "Species",
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "Butyrivibrio_crossotus"
     },
     {
-      "name": "g__Nocardia",
+      "name": "t__SGB5065",
+      "rank": "Unknown",
+      "percent": 1.23341,
+      "value": 1.23341,
+      "label": "SGB5065"
+    },
+    {
+      "name": "g__GGB3862",
       "rank": "Genus",
-      "percent": 0.8112728672621808,
-      "value": 0.8112728672621808,
-      "label": "Nocardia"
+      "percent": 0.79851,
+      "value": 0.79851,
+      "label": "GGB3862"
     },
     {
-      "name": "o__Micromonosporales",
-      "rank": "Order",
-      "percent": 3.3381356731852474,
-      "value": 3.3381356731852474,
-      "label": "Micromonosporales"
+      "name": "s__GGB3862_SGB5239",
+      "rank": "Species",
+      "percent": 0.79851,
+      "value": 0.79851,
+      "label": "GGB3862_SGB5239"
     },
     {
-      "name": "f__Micromonosporaceae",
-      "rank": "Family",
-      "percent": 3.3381356731852474,
-      "value": 3.3381356731852474,
-      "label": "Micromonosporaceae"
+      "name": "t__SGB5239",
+      "rank": "Unknown",
+      "percent": 0.79851,
+      "value": 0.79851,
+      "label": "SGB5239"
     },
     {
-      "name": "g__Micromonospora",
+      "name": "g__GGB3617",
       "rank": "Genus",
-      "percent": 1.5499468969136903,
-      "value": 1.5499468969136903,
-      "label": "Micromonospora"
+      "percent": 0.49443,
+      "value": 0.49443,
+      "label": "GGB3617"
     },
     {
-      "name": "g__Dactylosporangium",
+      "name": "s__GGB3617_SGB4891",
+      "rank": "Species",
+      "percent": 0.49443,
+      "value": 0.49443,
+      "label": "GGB3617_SGB4891"
+    },
+    {
+      "name": "t__SGB4891",
+      "rank": "Unknown",
+      "percent": 0.49443,
+      "value": 0.49443,
+      "label": "SGB4891"
+    },
+    {
+      "name": "g__Lachnospiraceae_unclassified",
       "rank": "Genus",
-      "percent": 0.5451756079723061,
-      "value": 0.5451756079723061,
-      "label": "Dactylosporangium"
-    },
-    {
-      "name": "g__Actinoplanes",
-      "rank": "Genus",
-      "percent": 0.5428000625841654,
-      "value": 0.5428000625841654,
-      "label": "Actinoplanes"
-    },
-    {
-      "name": "o__Pseudonocardiales",
-      "rank": "Order",
-      "percent": 2.7595456679005634,
-      "value": 2.7595456679005634,
-      "label": "Pseudonocardiales"
-    },
-    {
-      "name": "f__Pseudonocardiaceae",
-      "rank": "Family",
-      "percent": 2.7595456679005634,
-      "value": 2.7595456679005634,
-      "label": "Pseudonocardiaceae"
-    },
-    {
-      "name": "g__Amycolatopsis",
-      "rank": "Genus",
-      "percent": 0.933957125023326,
-      "value": 0.933957125023326,
-      "label": "Amycolatopsis"
-    },
-    {
-      "name": "g__Pseudonocardia",
-      "rank": "Genus",
-      "percent": 0.5161143674371814,
-      "value": 0.5161143674371814,
-      "label": "Pseudonocardia"
-    },
-    {
-      "name": "o__Propionibacteriales",
-      "rank": "Order",
-      "percent": 2.5688870479417014,
-      "value": 2.5688870479417014,
-      "label": "Propionibacteriales"
-    },
-    {
-      "name": "f__Nocardioidaceae",
-      "rank": "Family",
-      "percent": 1.7649277252374265,
-      "value": 1.7649277252374265,
-      "label": "Nocardioidaceae"
-    },
-    {
-      "name": "g__Nocardioides",
-      "rank": "Genus",
-      "percent": 1.4299275910854343,
-      "value": 1.4299275910854343,
-      "label": "Nocardioides"
-    },
-    {
-      "name": "o__Streptosporangiales",
-      "rank": "Order",
-      "percent": 1.714522752027127,
-      "value": 1.714522752027127,
-      "label": "Streptosporangiales"
-    },
-    {
-      "name": "f__Streptosporangiaceae",
-      "rank": "Family",
-      "percent": 0.9687703206353198,
-      "value": 0.9687703206353198,
-      "label": "Streptosporangiaceae"
-    },
-    {
-      "name": "f__Thermomonosporaceae",
-      "rank": "Family",
-      "percent": 0.5229214505417781,
-      "value": 0.5229214505417781,
-      "label": "Thermomonosporaceae"
-    },
-    {
-      "name": "c__Thermoleophilia",
-      "rank": "Class",
-      "percent": 1.6178730246872826,
-      "value": 1.6178730246872826,
-      "label": "Thermoleophilia"
-    },
-    {
-      "name": "o__Solirubrobacterales",
-      "rank": "Order",
-      "percent": 1.3734872855565332,
-      "value": 1.3734872855565332,
-      "label": "Solirubrobacterales"
-    },
-    {
-      "name": "c__Acidimicrobiia",
-      "rank": "Class",
-      "percent": 0.7604759893558685,
-      "value": 0.7604759893558685,
-      "label": "Acidimicrobiia"
-    },
-    {
-      "name": "o__Acidimicrobiales",
-      "rank": "Order",
-      "percent": 0.7460900723606801,
-      "value": 0.7460900723606801,
-      "label": "Acidimicrobiales"
-    },
-    {
-      "name": "p__Bacillota",
-      "rank": "Phylum",
-      "percent": 1.9540247557152515,
-      "value": 1.9540247557152515,
-      "label": "Bacillota"
+      "percent": 0.49096,
+      "value": 0.49096,
+      "label": "Lachnospiraceae_unclassified"
     },
     {
       "name": "c__Bacilli",
       "rank": "Class",
-      "percent": 1.3563520063862378,
-      "value": 1.3563520063862378,
+      "percent": 21.71949,
+      "value": 21.71949,
       "label": "Bacilli"
     },
     {
-      "name": "o__Bacillales",
+      "name": "o__Bacilli_unclassified",
       "rank": "Order",
-      "percent": 1.252020947004537,
-      "value": 1.252020947004537,
-      "label": "Bacillales"
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "f__Bacillaceae",
+      "name": "f__Bacilli_unclassified",
       "rank": "Family",
-      "percent": 0.5338164010909421,
-      "value": 0.5338164010909421,
-      "label": "Bacillaceae"
+      "percent": 21.66861,
+      "value": 21.66861,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "f__Paenibacillaceae",
-      "rank": "Family",
-      "percent": 0.49859321287388836,
-      "value": 0.49859321287388836,
-      "label": "Paenibacillaceae"
+      "name": "g__Bacilli_unclassified",
+      "rank": "Genus",
+      "percent": 14.839440000000002,
+      "value": 14.839440000000002,
+      "label": "Bacilli_unclassified"
     },
     {
-      "name": "p__Cyanobacteriota",
-      "rank": "Phylum",
-      "percent": 0.5319051120350013,
-      "value": 0.5319051120350013,
-      "label": "Cyanobacteriota"
+      "name": "s__Bacilli_bacterium",
+      "rank": "Species",
+      "percent": 8.19042,
+      "value": 8.19042,
+      "label": "Bacilli_bacterium"
     },
     {
-      "name": "c__Cyanophyceae",
+      "name": "t__SGB6494",
+      "rank": "Unknown",
+      "percent": 2.42002,
+      "value": 2.42002,
+      "label": "SGB6494"
+    },
+    {
+      "name": "t__SGB6486",
+      "rank": "Unknown",
+      "percent": 1.93482,
+      "value": 1.93482,
+      "label": "SGB6486"
+    },
+    {
+      "name": "t__SGB6510",
+      "rank": "Unknown",
+      "percent": 1.01927,
+      "value": 1.01927,
+      "label": "SGB6510"
+    },
+    {
+      "name": "t__SGB6421",
+      "rank": "Unknown",
+      "percent": 0.59422,
+      "value": 0.59422,
+      "label": "SGB6421"
+    },
+    {
+      "name": "t__SGB6529",
+      "rank": "Unknown",
+      "percent": 0.56506,
+      "value": 0.56506,
+      "label": "SGB6529"
+    },
+    {
+      "name": "t__SGB1016",
+      "rank": "Unknown",
+      "percent": 0.52763,
+      "value": 0.52763,
+      "label": "SGB1016"
+    },
+    {
+      "name": "t__SGB6427",
+      "rank": "Unknown",
+      "percent": 0.50788,
+      "value": 0.50788,
+      "label": "SGB6427"
+    },
+    {
+      "name": "s__Bacilli_unclassified_SGB6493",
+      "rank": "Species",
+      "percent": 4.5072,
+      "value": 4.5072,
+      "label": "Bacilli_unclassified_SGB6493"
+    },
+    {
+      "name": "t__SGB6493",
+      "rank": "Unknown",
+      "percent": 4.5072,
+      "value": 4.5072,
+      "label": "SGB6493"
+    },
+    {
+      "name": "s__Bacilli_unclassified_SGB6478",
+      "rank": "Species",
+      "percent": 1.02616,
+      "value": 1.02616,
+      "label": "Bacilli_unclassified_SGB6478"
+    },
+    {
+      "name": "t__SGB6478",
+      "rank": "Unknown",
+      "percent": 1.02616,
+      "value": 1.02616,
+      "label": "SGB6478"
+    },
+    {
+      "name": "s__Bacilli_unclassified_SGB6502",
+      "rank": "Species",
+      "percent": 0.59076,
+      "value": 0.59076,
+      "label": "Bacilli_unclassified_SGB6502"
+    },
+    {
+      "name": "t__SGB6502",
+      "rank": "Unknown",
+      "percent": 0.59076,
+      "value": 0.59076,
+      "label": "SGB6502"
+    },
+    {
+      "name": "g__GGB4641",
+      "rank": "Genus",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "GGB4641"
+    },
+    {
+      "name": "s__GGB4641_SGB6420",
+      "rank": "Species",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "GGB4641_SGB6420"
+    },
+    {
+      "name": "t__SGB6420",
+      "rank": "Unknown",
+      "percent": 1.71188,
+      "value": 1.71188,
+      "label": "SGB6420"
+    },
+    {
+      "name": "g__GGB4673",
+      "rank": "Genus",
+      "percent": 0.82399,
+      "value": 0.82399,
+      "label": "GGB4673"
+    },
+    {
+      "name": "s__GGB4673_SGB6462",
+      "rank": "Species",
+      "percent": 0.82399,
+      "value": 0.82399,
+      "label": "GGB4673_SGB6462"
+    },
+    {
+      "name": "t__SGB6462",
+      "rank": "Unknown",
+      "percent": 0.82399,
+      "value": 0.82399,
+      "label": "SGB6462"
+    },
+    {
+      "name": "g__GGB4700",
+      "rank": "Genus",
+      "percent": 0.75465,
+      "value": 0.75465,
+      "label": "GGB4700"
+    },
+    {
+      "name": "s__GGB4700_SGB6506",
+      "rank": "Species",
+      "percent": 0.75465,
+      "value": 0.75465,
+      "label": "GGB4700_SGB6506"
+    },
+    {
+      "name": "t__SGB6506",
+      "rank": "Unknown",
+      "percent": 0.75465,
+      "value": 0.75465,
+      "label": "SGB6506"
+    },
+    {
+      "name": "g__GGB4638",
+      "rank": "Genus",
+      "percent": 0.61694,
+      "value": 0.61694,
+      "label": "GGB4638"
+    },
+    {
+      "name": "s__GGB4638_SGB6417",
+      "rank": "Species",
+      "percent": 0.61694,
+      "value": 0.61694,
+      "label": "GGB4638_SGB6417"
+    },
+    {
+      "name": "t__SGB6417",
+      "rank": "Unknown",
+      "percent": 0.61694,
+      "value": 0.61694,
+      "label": "SGB6417"
+    },
+    {
+      "name": "g__GGB4674",
+      "rank": "Genus",
+      "percent": 0.60127,
+      "value": 0.60127,
+      "label": "GGB4674"
+    },
+    {
+      "name": "s__GGB4674_SGB6463",
+      "rank": "Species",
+      "percent": 0.60127,
+      "value": 0.60127,
+      "label": "GGB4674_SGB6463"
+    },
+    {
+      "name": "t__SGB6463",
+      "rank": "Unknown",
+      "percent": 0.60127,
+      "value": 0.60127,
+      "label": "SGB6463"
+    },
+    {
+      "name": "g__GGB4640",
+      "rank": "Genus",
+      "percent": 0.50062,
+      "value": 0.50062,
+      "label": "GGB4640"
+    },
+    {
+      "name": "s__GGB4640_SGB6419",
+      "rank": "Species",
+      "percent": 0.50062,
+      "value": 0.50062,
+      "label": "GGB4640_SGB6419"
+    },
+    {
+      "name": "t__SGB6419",
+      "rank": "Unknown",
+      "percent": 0.50062,
+      "value": 0.50062,
+      "label": "SGB6419"
+    },
+    {
+      "name": "c__Erysipelotrichia",
       "rank": "Class",
-      "percent": 0.531181595673131,
-      "value": 0.531181595673131,
-      "label": "Cyanophyceae"
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichia"
     },
     {
-      "name": "k__Viridiplantae",
-      "rank": "Kingdom",
-      "percent": 3.453711382691017,
-      "value": 3.453711382691017,
-      "label": "Viridiplantae"
-    },
-    {
-      "name": "p__Streptophyta",
-      "rank": "Phylum",
-      "percent": 3.3875940458221003,
-      "value": 3.3875940458221003,
-      "label": "Streptophyta"
-    },
-    {
-      "name": "c__Magnoliopsida",
-      "rank": "Class",
-      "percent": 3.2451577913818954,
-      "value": 3.2451577913818954,
-      "label": "Magnoliopsida"
-    },
-    {
-      "name": "o__Poales",
+      "name": "o__Erysipelotrichales",
       "rank": "Order",
-      "percent": 1.2438150656003242,
-      "value": 1.2438150656003242,
-      "label": "Poales"
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichales"
     },
     {
-      "name": "f__Poaceae",
+      "name": "f__Erysipelotrichaceae",
       "rank": "Family",
-      "percent": 1.211232712104097,
-      "value": 1.211232712104097,
-      "label": "Poaceae"
+      "percent": 1.5785299999999998,
+      "value": 1.5785299999999998,
+      "label": "Erysipelotrichaceae"
     },
     {
-      "name": "k__Fungi",
-      "rank": "Kingdom",
-      "percent": 0.4908576171048915,
-      "value": 0.4908576171048915,
-      "label": "Fungi"
+      "name": "g__Catenibacterium",
+      "rank": "Genus",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "Catenibacterium"
     },
     {
-      "name": "k__Methanobacteriati",
-      "rank": "Kingdom",
-      "percent": 1.1143960763707697,
-      "value": 1.1143960763707697,
-      "label": "Methanobacteriati"
+      "name": "s__Catenibacterium_sp_AM22_15",
+      "rank": "Species",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "Catenibacterium_sp_AM22_15"
     },
     {
-      "name": "p__Methanobacteriota",
-      "rank": "Phylum",
-      "percent": 1.1116889193167714,
-      "value": 1.1116889193167714,
-      "label": "Methanobacteriota"
+      "name": "t__SGB6783_group",
+      "rank": "Unknown",
+      "percent": 1.38355,
+      "value": 1.38355,
+      "label": "SGB6783_group"
     },
     {
-      "name": "c__Halobacteria",
+      "name": "c__Negativicutes",
       "rank": "Class",
-      "percent": 1.0281107209147176,
-      "value": 1.0281107209147176,
-      "label": "Halobacteria"
+      "percent": 0.99571,
+      "value": 0.99571,
+      "label": "Negativicutes"
     },
     {
-      "name": "o__Halobacteriales",
+      "name": "o__Veillonellales",
       "rank": "Order",
-      "percent": 1.0281107209147176,
-      "value": 1.0281107209147176,
-      "label": "Halobacteriales"
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "Veillonellales"
+    },
+    {
+      "name": "f__Veillonellaceae",
+      "rank": "Family",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "Veillonellaceae"
+    },
+    {
+      "name": "g__GGB4266",
+      "rank": "Genus",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "GGB4266"
+    },
+    {
+      "name": "s__GGB4266_SGB5809",
+      "rank": "Species",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "GGB4266_SGB5809"
+    },
+    {
+      "name": "t__SGB5809_group",
+      "rank": "Unknown",
+      "percent": 0.9319899999999999,
+      "value": 0.9319899999999999,
+      "label": "SGB5809_group"
+    },
+    {
+      "name": "p__Bacteroidetes",
+      "rank": "Phylum",
+      "percent": 13.08945,
+      "value": 13.08945,
+      "label": "Bacteroidetes"
+    },
+    {
+      "name": "c__Bacteroidia",
+      "rank": "Class",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidia"
+    },
+    {
+      "name": "o__Bacteroidales",
+      "rank": "Order",
+      "percent": 12.64928,
+      "value": 12.64928,
+      "label": "Bacteroidales"
+    },
+    {
+      "name": "f__Rikenellaceae",
+      "rank": "Family",
+      "percent": 7.6702699999999995,
+      "value": 7.6702699999999995,
+      "label": "Rikenellaceae"
+    },
+    {
+      "name": "g__Rikenellaceae_unclassified",
+      "rank": "Genus",
+      "percent": 7.605529999999999,
+      "value": 7.605529999999999,
+      "label": "Rikenellaceae_unclassified"
+    },
+    {
+      "name": "s__Rikenellaceae_unclassified_SGB2230",
+      "rank": "Species",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "Rikenellaceae_unclassified_SGB2230"
+    },
+    {
+      "name": "t__SGB2230",
+      "rank": "Unknown",
+      "percent": 4.99844,
+      "value": 4.99844,
+      "label": "SGB2230"
+    },
+    {
+      "name": "s__Rikenellaceae_bacterium",
+      "rank": "Species",
+      "percent": 2.6071,
+      "value": 2.6071,
+      "label": "Rikenellaceae_bacterium"
+    },
+    {
+      "name": "t__SGB2241",
+      "rank": "Unknown",
+      "percent": 1.5463,
+      "value": 1.5463,
+      "label": "SGB2241"
+    },
+    {
+      "name": "t__SGB2215",
+      "rank": "Unknown",
+      "percent": 1.06079,
+      "value": 1.06079,
+      "label": "SGB2215"
+    },
+    {
+      "name": "f__Bacteroidales_unclassified",
+      "rank": "Family",
+      "percent": 4.39059,
+      "value": 4.39059,
+      "label": "Bacteroidales_unclassified"
+    },
+    {
+      "name": "g__Phocaeicola",
+      "rank": "Genus",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "Phocaeicola"
+    },
+    {
+      "name": "s__Phocaeicola_vulgatus",
+      "rank": "Species",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "Phocaeicola_vulgatus"
+    },
+    {
+      "name": "t__SGB1814",
+      "rank": "Unknown",
+      "percent": 3.58076,
+      "value": 3.58076,
+      "label": "SGB1814"
+    },
+    {
+      "name": "g__Bacteroidales_unclassified",
+      "rank": "Genus",
+      "percent": 0.79688,
+      "value": 0.79688,
+      "label": "Bacteroidales_unclassified"
+    },
+    {
+      "name": "s__Bacteroidales_bacterium",
+      "rank": "Species",
+      "percent": 0.79688,
+      "value": 0.79688,
+      "label": "Bacteroidales_bacterium"
+    },
+    {
+      "name": "t__SGB2021",
+      "rank": "Unknown",
+      "percent": 0.79688,
+      "value": 0.79688,
+      "label": "SGB2021"
+    },
+    {
+      "name": "p__Proteobacteria",
+      "rank": "Phylum",
+      "percent": 6.85062,
+      "value": 6.85062,
+      "label": "Proteobacteria"
+    },
+    {
+      "name": "c__CFGB1062",
+      "rank": "Class",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "CFGB1062"
+    },
+    {
+      "name": "o__OFGB1062",
+      "rank": "Order",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "OFGB1062"
+    },
+    {
+      "name": "f__FGB1062",
+      "rank": "Family",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "FGB1062"
+    },
+    {
+      "name": "g__GGB2734",
+      "rank": "Genus",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "GGB2734"
+    },
+    {
+      "name": "s__GGB2734_SGB3677",
+      "rank": "Species",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "GGB2734_SGB3677"
+    },
+    {
+      "name": "t__SGB3677",
+      "rank": "Unknown",
+      "percent": 4.85565,
+      "value": 4.85565,
+      "label": "SGB3677"
+    },
+    {
+      "name": "c__CFGB2394",
+      "rank": "Class",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "CFGB2394"
+    },
+    {
+      "name": "o__OFGB2394",
+      "rank": "Order",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "OFGB2394"
+    },
+    {
+      "name": "f__FGB2394",
+      "rank": "Family",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "FGB2394"
+    },
+    {
+      "name": "g__GGB6544",
+      "rank": "Genus",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "GGB6544"
+    },
+    {
+      "name": "s__GGB6544_SGB9243",
+      "rank": "Species",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "GGB6544_SGB9243"
+    },
+    {
+      "name": "t__SGB9243",
+      "rank": "Unknown",
+      "percent": 0.66491,
+      "value": 0.66491,
+      "label": "SGB9243"
+    },
+    {
+      "name": "c__Gammaproteobacteria",
+      "rank": "Class",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "Gammaproteobacteria"
+    },
+    {
+      "name": "o__Enterobacterales",
+      "rank": "Order",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "Enterobacterales"
+    },
+    {
+      "name": "f__Enterobacteriaceae",
+      "rank": "Family",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "Enterobacteriaceae"
+    },
+    {
+      "name": "g__Escherichia",
+      "rank": "Genus",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "Escherichia"
+    },
+    {
+      "name": "s__Escherichia_coli",
+      "rank": "Species",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "Escherichia_coli"
+    },
+    {
+      "name": "t__SGB10068",
+      "rank": "Unknown",
+      "percent": 0.63313,
+      "value": 0.63313,
+      "label": "SGB10068"
+    },
+    {
+      "name": "p__Actinobacteria",
+      "rank": "Phylum",
+      "percent": 1.8499100000000002,
+      "value": 1.8499100000000002,
+      "label": "Actinobacteria"
+    },
+    {
+      "name": "c__Actinobacteria",
+      "rank": "Class",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Actinobacteria"
+    },
+    {
+      "name": "o__Bifidobacteriales",
+      "rank": "Order",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacteriales"
+    },
+    {
+      "name": "f__Bifidobacteriaceae",
+      "rank": "Family",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacteriaceae"
+    },
+    {
+      "name": "g__Bifidobacterium",
+      "rank": "Genus",
+      "percent": 1.06427,
+      "value": 1.06427,
+      "label": "Bifidobacterium"
+    },
+    {
+      "name": "s__Bifidobacterium_ruminantium",
+      "rank": "Species",
+      "percent": 0.70777,
+      "value": 0.70777,
+      "label": "Bifidobacterium_ruminantium"
+    },
+    {
+      "name": "t__SGB17243",
+      "rank": "Unknown",
+      "percent": 0.70777,
+      "value": 0.70777,
+      "label": "SGB17243"
+    },
+    {
+      "name": "c__Coriobacteriia",
+      "rank": "Class",
+      "percent": 0.7856399999999999,
+      "value": 0.7856399999999999,
+      "label": "Coriobacteriia"
+    },
+    {
+      "name": "o__Coriobacteriales",
+      "rank": "Order",
+      "percent": 0.61827,
+      "value": 0.61827,
+      "label": "Coriobacteriales"
+    },
+    {
+      "name": "p__Verrucomicrobia",
+      "rank": "Phylum",
+      "percent": 0.55967,
+      "value": 0.55967,
+      "label": "Verrucomicrobia"
+    },
+    {
+      "name": "c__Opitutae",
+      "rank": "Class",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "Opitutae"
+    },
+    {
+      "name": "o__Opitutales",
+      "rank": "Order",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "Opitutales"
+    },
+    {
+      "name": "f__Opitutales_unclassified",
+      "rank": "Family",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "Opitutales_unclassified"
+    },
+    {
+      "name": "g__Opitutales_unclassified",
+      "rank": "Genus",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "Opitutales_unclassified"
+    },
+    {
+      "name": "s__Opitutales_bacterium",
+      "rank": "Species",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "Opitutales_bacterium"
+    },
+    {
+      "name": "t__SGB8776",
+      "rank": "Unknown",
+      "percent": 0.49807,
+      "value": 0.49807,
+      "label": "SGB8776"
     }
   ],
   "links": [
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Pseudomonadota",
-      "rel": 6323886,
-      "value": 38.128624930022404
+      "source": "k__Bacteria",
+      "target": "p__Firmicutes",
+      "rel": 73.94313,
+      "value": 73.94313
     },
     {
-      "source": "p__Pseudomonadota",
-      "target": "c__Alphaproteobacteria",
-      "rel": 3478459,
-      "value": 20.972683338292438
+      "source": "k__Bacteria",
+      "target": "p__Bacteroidetes",
+      "rel": 13.08945,
+      "value": 13.08945
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Hyphomicrobiales",
-      "rel": 2122436,
-      "value": 12.796809775188391
+      "source": "k__Bacteria",
+      "target": "p__Actinobacteria",
+      "rel": 1.84991,
+      "value": 1.8499100000000002
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Nitrobacteraceae",
-      "rel": 669519,
-      "value": 4.0367329256921565
+      "source": "k__Bacteria",
+      "target": "p__Proteobacteria",
+      "rel": 6.85062,
+      "value": 6.85062
     },
     {
-      "source": "f__Nitrobacteraceae",
-      "target": "g__Bradyrhizobium",
-      "rel": 536470,
-      "value": 3.234540188771448
+      "source": "k__Archaea",
+      "target": "p__Euryarchaeota",
+      "rel": 2.93912,
+      "value": 2.93912
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Rhizobiaceae",
-      "rel": 315626,
-      "value": 1.9030047935973626
+      "source": "k__Bacteria",
+      "target": "p__Verrucomicrobia",
+      "rel": 0.55967,
+      "value": 0.55967
     },
     {
-      "source": "f__Rhizobiaceae",
-      "target": "g__Rhizobium",
-      "rel": 103550,
-      "value": 0.6243343272639355
+      "source": "p__Firmicutes",
+      "target": "c__Clostridia",
+      "rel": 49.38237,
+      "value": 49.38237
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Phyllobacteriaceae",
-      "rel": 221324,
-      "value": 1.334429460621567
+      "source": "p__Bacteroidetes",
+      "target": "c__Bacteroidia",
+      "rel": 12.64928,
+      "value": 12.64928
     },
     {
-      "source": "f__Phyllobacteriaceae",
-      "target": "g__Mesorhizobium",
-      "rel": 170315,
-      "value": 1.0268807430995381
+      "source": "p__Firmicutes",
+      "target": "c__Negativicutes",
+      "rel": 0.99571,
+      "value": 0.99571
     },
     {
-      "source": "o__Hyphomicrobiales",
-      "target": "f__Methylobacteriaceae",
-      "rel": 158724,
-      "value": 0.95699509184588
+      "source": "p__Actinobacteria",
+      "target": "c__Actinobacteria",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "f__Methylobacteriaceae",
-      "target": "g__Methylobacterium",
-      "rel": 90953,
-      "value": 0.548383197176598
+      "source": "p__Firmicutes",
+      "target": "c__Bacilli",
+      "rel": 21.71949,
+      "value": 21.71949
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Sphingomonadales",
-      "rel": 412759,
-      "value": 2.4886490834102823
+      "source": "p__Actinobacteria",
+      "target": "c__Coriobacteriia",
+      "rel": 0.78564,
+      "value": 0.7856399999999999
     },
     {
-      "source": "o__Sphingomonadales",
-      "target": "f__Sphingomonadaceae",
-      "rel": 212603,
-      "value": 1.281847909022641
+      "source": "p__Verrucomicrobia",
+      "target": "c__Opitutae",
+      "rel": 0.49807,
+      "value": 0.49807
     },
     {
-      "source": "f__Sphingomonadaceae",
-      "target": "g__Sphingomonas",
-      "rel": 164743,
-      "value": 0.9932854666966926
+      "source": "p__Firmicutes",
+      "target": "c__Erysipelotrichia",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
     },
     {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Rhodobacterales",
-      "rel": 285552,
-      "value": 1.7216795347066278
-    },
-    {
-      "source": "o__Rhodobacterales",
-      "target": "f__Paracoccaceae",
-      "rel": 147528,
-      "value": 0.8894910152833788
-    },
-    {
-      "source": "o__Rhodobacterales",
-      "target": "f__Roseobacteraceae",
-      "rel": 113805,
-      "value": 0.6861648296887705
-    },
-    {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Rhodospirillales",
-      "rel": 202297,
-      "value": 1.2197099121440111
-    },
-    {
-      "source": "o__Rhodospirillales",
-      "target": "f__Azospirillaceae",
-      "rel": 93539,
-      "value": 0.5639749747749034
-    },
-    {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Acetobacterales",
-      "rel": 109099,
-      "value": 0.6577909296974225
-    },
-    {
-      "source": "c__Alphaproteobacteria",
-      "target": "o__Caulobacterales",
-      "rel": 104372,
-      "value": 0.6292904143427471
-    },
-    {
-      "source": "o__Caulobacterales",
-      "target": "f__Caulobacteraceae",
-      "rel": 104372,
-      "value": 0.6292904143427471
-    },
-    {
-      "source": "p__Pseudomonadota",
-      "target": "c__Betaproteobacteria",
-      "rel": 1344182,
-      "value": 8.104480586096487
-    },
-    {
-      "source": "c__Betaproteobacteria",
-      "target": "o__Burkholderiales",
-      "rel": 1109867,
-      "value": 6.691724449999442
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Burkholderiaceae",
-      "rel": 393900,
-      "value": 2.374942457839345
-    },
-    {
-      "source": "f__Burkholderiaceae",
-      "target": "g__Burkholderia",
-      "rel": 131410,
-      "value": 0.7923107092781628
-    },
-    {
-      "source": "f__Burkholderiaceae",
-      "target": "g__Cupriavidus",
-      "rel": 83944,
-      "value": 0.5061238123403554
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Comamonadaceae",
-      "rel": 275766,
-      "value": 1.6626767753961027
-    },
-    {
-      "source": "f__Comamonadaceae",
-      "target": "g__Variovorax",
-      "rel": 100356,
-      "value": 0.6050767334321536
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Oxalobacteraceae",
-      "rel": 135535,
-      "value": 0.8171815842174553
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Sphaerotilaceae",
-      "rel": 112980,
-      "value": 0.6811906547009119
-    },
-    {
-      "source": "o__Burkholderiales",
-      "target": "f__Alcaligenaceae",
-      "rel": 98480,
-      "value": 0.5937657609749142
-    },
-    {
-      "source": "c__Betaproteobacteria",
-      "target": "o__Rhodocyclales",
-      "rel": 86826,
-      "value": 0.5235002636312743
-    },
-    {
-      "source": "p__Pseudomonadota",
+      "source": "p__Proteobacteria",
       "target": "c__Gammaproteobacteria",
-      "rel": 1163723,
-      "value": 7.0164385932068445
+      "rel": 0.63313,
+      "value": 0.63313
     },
     {
-      "source": "c__Gammaproteobacteria",
-      "target": "o__Pseudomonadales",
-      "rel": 355377,
-      "value": 2.1426756177699238
+      "source": "c__Clostridia",
+      "target": "o__Clostridiales",
+      "rel": 16.91141,
+      "value": 16.91141
     },
     {
-      "source": "o__Pseudomonadales",
-      "target": "f__Pseudomonadaceae",
-      "rel": 343505,
-      "value": 2.071095732368886
+      "source": "c__Bacteroidia",
+      "target": "o__Bacteroidales",
+      "rel": 12.64928,
+      "value": 12.64928
     },
     {
-      "source": "f__Pseudomonadaceae",
-      "target": "g__Pseudomonas",
-      "rel": 278051,
-      "value": 1.6764537327867166
+      "source": "c__Clostridia",
+      "target": "o__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
     },
     {
-      "source": "c__Gammaproteobacteria",
-      "target": "o__Lysobacterales",
-      "rel": 293565,
-      "value": 1.7699923397705188
+      "source": "c__Actinobacteria",
+      "target": "o__Bifidobacteriales",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "o__Lysobacterales",
-      "target": "f__Lysobacteraceae",
-      "rel": 218747,
-      "value": 1.3188919467504017
+      "source": "c__Negativicutes",
+      "target": "o__Veillonellales",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
+    },
+    {
+      "source": "c__Coriobacteriia",
+      "target": "o__Coriobacteriales",
+      "rel": 0.61827,
+      "value": 0.61827
+    },
+    {
+      "source": "c__Bacilli",
+      "target": "o__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
+    },
+    {
+      "source": "c__Opitutae",
+      "target": "o__Opitutales",
+      "rel": 0.49807,
+      "value": 0.49807
+    },
+    {
+      "source": "c__Erysipelotrichia",
+      "target": "o__Erysipelotrichales",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
     },
     {
       "source": "c__Gammaproteobacteria",
       "target": "o__Enterobacterales",
-      "rel": 121594,
-      "value": 0.7331270708771701
+      "rel": 0.63313,
+      "value": 0.63313
     },
     {
-      "source": "c__Gammaproteobacteria",
-      "target": "o__Oceanospirillales",
-      "rel": 83971,
-      "value": 0.5062866035217762
+      "source": "o__Clostridiales",
+      "target": "f__Ruminococcaceae",
+      "rel": 8.87596,
+      "value": 8.87596
     },
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Planctomycetota",
-      "rel": 539315,
-      "value": 3.2516935558507902
+      "source": "o__Clostridiales",
+      "target": "f__Lachnospiraceae",
+      "rel": 6.83194,
+      "value": 6.83194
     },
     {
-      "source": "p__Planctomycetota",
-      "target": "c__Planctomycetia",
-      "rel": 514145,
-      "value": 3.0999359989484896
+      "source": "o__Clostridia_unclassified",
+      "target": "f__Clostridia_unclassified",
+      "rel": 32.47097,
+      "value": 32.47097
     },
     {
-      "source": "c__Planctomycetia",
-      "target": "o__Gemmatales",
-      "rel": 148057,
-      "value": 0.8926805165786238
+      "source": "o__Bacteroidales",
+      "target": "f__Rikenellaceae",
+      "rel": 7.67027,
+      "value": 7.6702699999999995
     },
     {
-      "source": "o__Gemmatales",
-      "target": "f__Gemmataceae",
-      "rel": 148057,
-      "value": 0.8926805165786238
+      "source": "o__Bifidobacteriales",
+      "target": "f__Bifidobacteriaceae",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "c__Planctomycetia",
-      "target": "o__Pirellulales",
-      "rel": 127415,
-      "value": 0.7682236437308966
+      "source": "o__Veillonellales",
+      "target": "f__Veillonellaceae",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
     },
     {
-      "source": "c__Planctomycetia",
-      "target": "o__Isosphaerales",
-      "rel": 102569,
-      "value": 0.6184195810056455
+      "source": "o__Bacilli_unclassified",
+      "target": "f__Bacilli_unclassified",
+      "rel": 21.66861,
+      "value": 21.66861
     },
     {
-      "source": "o__Isosphaerales",
-      "target": "f__Isosphaeraceae",
-      "rel": 102569,
-      "value": 0.6184195810056455
+      "source": "o__Bacteroidales",
+      "target": "f__Bacteroidales_unclassified",
+      "rel": 4.39059,
+      "value": 4.39059
     },
     {
-      "source": "c__Planctomycetia",
-      "target": "o__Planctomycetales",
-      "rel": 90456,
-      "value": 0.5453866335778517
+      "source": "o__Opitutales",
+      "target": "f__Opitutales_unclassified",
+      "rel": 0.49807,
+      "value": 0.49807
     },
     {
-      "source": "o__Planctomycetales",
-      "target": "f__Planctomycetaceae",
-      "rel": 90456,
-      "value": 0.5453866335778517
+      "source": "o__Erysipelotrichales",
+      "target": "f__Erysipelotrichaceae",
+      "rel": 1.57853,
+      "value": 1.5785299999999998
     },
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Myxococcota",
-      "rel": 532053,
-      "value": 3.2079087573516047
+      "source": "o__Enterobacterales",
+      "target": "f__Enterobacteriaceae",
+      "rel": 0.63313,
+      "value": 0.63313
     },
     {
-      "source": "p__Myxococcota",
-      "target": "o__Polyangiales",
-      "rel": 250479,
-      "value": 1.5102137900409782
+      "source": "f__Lachnospiraceae",
+      "target": "g__Lachnospiraceae_unclassified",
+      "rel": 0.49096,
+      "value": 0.49096
     },
     {
-      "source": "o__Polyangiales",
-      "target": "f__Polyangiaceae",
-      "rel": 213414,
-      "value": 1.2867376737682812
+      "source": "f__Ruminococcaceae",
+      "target": "g__Ruminococcaceae_unclassified",
+      "rel": 3.29784,
+      "value": 3.29784
     },
     {
-      "source": "f__Polyangiaceae",
-      "target": "g__Sorangium",
-      "rel": 187791,
-      "value": 1.1322488425999198
+      "source": "f__Clostridia_unclassified",
+      "target": "g__Clostridia_unclassified",
+      "rel": 25.15318,
+      "value": 25.15318
     },
     {
-      "source": "p__Myxococcota",
-      "target": "c__Myxococcia",
-      "rel": 234870,
-      "value": 1.4161023992706956
+      "source": "f__Rikenellaceae",
+      "target": "g__Rikenellaceae_unclassified",
+      "rel": 7.60553,
+      "value": 7.605529999999999
     },
     {
-      "source": "c__Myxococcia",
-      "target": "o__Myxococcales",
-      "rel": 234870,
-      "value": 1.4161023992706956
+      "source": "f__Bifidobacteriaceae",
+      "target": "g__Bifidobacterium",
+      "rel": 1.06427,
+      "value": 1.06427
     },
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Bacteroidota",
-      "rel": 164017,
-      "value": 0.9889081927073771
+      "source": "f__Veillonellaceae",
+      "target": "g__GGB4266",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
     },
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Acidobacteriota",
-      "rel": 168248,
-      "value": 1.0144181737663218
+      "source": "f__Ruminococcaceae",
+      "target": "g__GGB9635",
+      "rel": 1.53641,
+      "value": 1.53641
     },
     {
-      "source": "k__Pseudomonadati",
-      "target": "p__Thermodesulfobacteriota",
-      "rel": 108411,
-      "value": 0.6536427692226993
+      "source": "f__Ruminococcaceae",
+      "target": "g__Ruminococcus",
+      "rel": 0.93667,
+      "value": 0.93667
     },
     {
-      "source": "k__Bacillati",
-      "target": "p__Actinomycetota",
-      "rel": 6742405,
-      "value": 40.652002798802464
+      "source": "f__Lachnospiraceae",
+      "target": "g__GGB3862",
+      "rel": 0.79851,
+      "value": 0.79851
     },
     {
-      "source": "p__Actinomycetota",
-      "target": "c__Actinomycetes",
-      "rel": 6206501,
-      "value": 37.42087519553783
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB4569",
+      "rel": 2.33103,
+      "value": 2.33103
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Kitasatosporales",
-      "rel": 1962324,
-      "value": 11.83144601075688
+      "source": "f__Bacilli_unclassified",
+      "target": "g__Bacilli_unclassified",
+      "rel": 14.83944,
+      "value": 14.839440000000002
     },
     {
-      "source": "o__Kitasatosporales",
-      "target": "f__Streptomycetaceae",
-      "rel": 1958243,
-      "value": 11.806840425150272
+      "source": "f__Lachnospiraceae",
+      "target": "g__Butyrivibrio",
+      "rel": 1.23341,
+      "value": 1.23341
     },
     {
-      "source": "f__Streptomycetaceae",
-      "target": "g__Streptomyces",
-      "rel": 1786077,
-      "value": 10.768799442168884
+      "source": "f__Bacteroidales_unclassified",
+      "target": "g__Bacteroidales_unclassified",
+      "rel": 0.79688,
+      "value": 0.79688
     },
     {
-      "source": "f__Streptomycetaceae",
-      "target": "g__Kitasatospora",
-      "rel": 88205,
-      "value": 0.5318146724897675
+      "source": "f__Lachnospiraceae",
+      "target": "g__GGB3733",
+      "rel": 3.29854,
+      "value": 3.29854
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Micrococcales",
-      "rel": 981182,
-      "value": 5.915843591438751
+      "source": "f__Bacteroidales_unclassified",
+      "target": "g__Phocaeicola",
+      "rel": 3.58076,
+      "value": 3.58076
     },
     {
-      "source": "o__Micrococcales",
-      "target": "f__Microbacteriaceae",
-      "rel": 481479,
-      "value": 2.902982786641356
+      "source": "f__Opitutales_unclassified",
+      "target": "g__Opitutales_unclassified",
+      "rel": 0.49807,
+      "value": 0.49807
     },
     {
-      "source": "f__Microbacteriaceae",
-      "target": "g__Microbacterium",
-      "rel": 172535,
-      "value": 1.040265795794139
+      "source": "f__Ruminococcaceae",
+      "target": "g__GGB9603",
+      "rel": 1.0341,
+      "value": 1.0341
     },
     {
-      "source": "o__Micrococcales",
-      "target": "f__Micrococcaceae",
-      "rel": 137398,
-      "value": 0.828414175735492
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4700",
+      "rel": 0.75465,
+      "value": 0.75465
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Mycobacteriales",
-      "rel": 699138,
-      "value": 4.2153148517108
+      "source": "f__Lachnospiraceae",
+      "target": "g__GGB3617",
+      "rel": 0.49443,
+      "value": 0.49443
     },
     {
-      "source": "o__Mycobacteriales",
-      "target": "f__Mycobacteriaceae",
-      "rel": 318604,
-      "value": 1.920960057977778
+      "source": "f__Enterobacteriaceae",
+      "target": "g__Escherichia",
+      "rel": 0.63313,
+      "value": 0.63313
     },
     {
-      "source": "f__Mycobacteriaceae",
-      "target": "g__Mycolicibacterium",
-      "rel": 151519,
-      "value": 0.9135539636185827
+      "source": "g__Rikenellaceae_unclassified",
+      "target": "s__Rikenellaceae_unclassified_SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
     },
     {
-      "source": "f__Mycobacteriaceae",
-      "target": "g__Mycobacterium",
-      "rel": 122688,
-      "value": 0.7397231283762213
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_bacterium",
+      "rel": 22.14293,
+      "value": 22.14293
     },
     {
-      "source": "o__Mycobacteriales",
-      "target": "f__Nocardiaceae",
-      "rel": 227081,
-      "value": 1.3691401580822957
+      "source": "g__Ruminococcaceae_unclassified",
+      "target": "s__Ruminococcaceae_bacterium",
+      "rel": 2.74742,
+      "value": 2.74742
     },
     {
-      "source": "f__Nocardiaceae",
-      "target": "g__Nocardia",
-      "rel": 134555,
-      "value": 0.8112728672621808
+      "source": "g__GGB4266",
+      "target": "s__GGB4266_SGB5809",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Micromonosporales",
-      "rel": 553652,
-      "value": 3.3381356731852474
+      "source": "g__GGB3862",
+      "target": "s__GGB3862_SGB5239",
+      "rel": 0.79851,
+      "value": 0.79851
     },
     {
-      "source": "o__Micromonosporales",
-      "target": "f__Micromonosporaceae",
-      "rel": 553652,
-      "value": 3.3381356731852474
+      "source": "g__GGB9635",
+      "target": "s__GGB9635_SGB15100",
+      "rel": 1.38697,
+      "value": 1.38697
     },
     {
-      "source": "f__Micromonosporaceae",
-      "target": "g__Micromonospora",
-      "rel": 257069,
-      "value": 1.5499468969136903
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_bacterium",
+      "rel": 8.19042,
+      "value": 8.19042
     },
     {
-      "source": "f__Micromonosporaceae",
-      "target": "g__Dactylosporangium",
-      "rel": 90421,
-      "value": 0.5451756079723061
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_unclassified_SGB6293",
+      "rel": 0.70755,
+      "value": 0.70755
     },
     {
-      "source": "f__Micromonosporaceae",
-      "target": "g__Actinoplanes",
-      "rel": 90027,
-      "value": 0.5428000625841654
+      "source": "g__Butyrivibrio",
+      "target": "s__Butyrivibrio_crossotus",
+      "rel": 1.23341,
+      "value": 1.23341
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Pseudonocardiales",
-      "rel": 457689,
-      "value": 2.7595456679005634
+      "source": "g__Bacteroidales_unclassified",
+      "target": "s__Bacteroidales_bacterium",
+      "rel": 0.79688,
+      "value": 0.79688
     },
     {
-      "source": "o__Pseudonocardiales",
-      "target": "f__Pseudonocardiaceae",
-      "rel": 457689,
-      "value": 2.7595456679005634
+      "source": "g__GGB3733",
+      "target": "s__GGB3733_SGB5066",
+      "rel": 3.29854,
+      "value": 3.29854
     },
     {
-      "source": "f__Pseudonocardiaceae",
-      "target": "g__Amycolatopsis",
-      "rel": 154903,
-      "value": 0.933957125023326
+      "source": "g__Ruminococcus",
+      "target": "s__Ruminococcus_sp_NSJ_71",
+      "rel": 0.83418,
+      "value": 0.83418
     },
     {
-      "source": "f__Pseudonocardiaceae",
-      "target": "g__Pseudonocardia",
-      "rel": 85601,
-      "value": 0.5161143674371814
+      "source": "g__Phocaeicola",
+      "target": "s__Phocaeicola_vulgatus",
+      "rel": 3.58076,
+      "value": 3.58076
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Propionibacteriales",
-      "rel": 426067,
-      "value": 2.5688870479417014
+      "source": "g__Opitutales_unclassified",
+      "target": "s__Opitutales_bacterium",
+      "rel": 0.49807,
+      "value": 0.49807
     },
     {
-      "source": "o__Propionibacteriales",
-      "target": "f__Nocardioidaceae",
-      "rel": 292725,
-      "value": 1.7649277252374265
+      "source": "g__GGB9603",
+      "target": "s__GGB9603_SGB15035",
+      "rel": 1.0341,
+      "value": 1.0341
     },
     {
-      "source": "f__Nocardioidaceae",
-      "target": "g__Nocardioides",
-      "rel": 237163,
-      "value": 1.4299275910854343
+      "source": "g__GGB4700",
+      "target": "s__GGB4700_SGB6506",
+      "rel": 0.75465,
+      "value": 0.75465
     },
     {
-      "source": "c__Actinomycetes",
-      "target": "o__Streptosporangiales",
-      "rel": 284365,
-      "value": 1.714522752027127
+      "source": "g__GGB3617",
+      "target": "s__GGB3617_SGB4891",
+      "rel": 0.49443,
+      "value": 0.49443
     },
     {
-      "source": "o__Streptosporangiales",
-      "target": "f__Streptosporangiaceae",
-      "rel": 160677,
-      "value": 0.9687703206353198
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_unclassified_SGB6493",
+      "rel": 4.5072,
+      "value": 4.5072
     },
     {
-      "source": "o__Streptosporangiales",
-      "target": "f__Thermomonosporaceae",
-      "rel": 86730,
-      "value": 0.5229214505417781
+      "source": "g__Escherichia",
+      "target": "s__Escherichia_coli",
+      "rel": 0.63313,
+      "value": 0.63313
     },
     {
-      "source": "p__Actinomycetota",
-      "target": "c__Thermoleophilia",
-      "rel": 268335,
-      "value": 1.6178730246872826
+      "source": "s__Rikenellaceae_unclassified_SGB2230",
+      "target": "t__SGB2230",
+      "rel": 4.99844,
+      "value": 4.99844
     },
     {
-      "source": "c__Thermoleophilia",
-      "target": "o__Solirubrobacterales",
-      "rel": 227802,
-      "value": 1.3734872855565332
+      "source": "s__GGB4266_SGB5809",
+      "target": "t__SGB5809_group",
+      "rel": 0.93199,
+      "value": 0.9319899999999999
     },
     {
-      "source": "p__Actinomycetota",
-      "target": "c__Acidimicrobiia",
-      "rel": 126130,
-      "value": 0.7604759893558685
+      "source": "s__Ruminococcaceae_bacterium",
+      "target": "t__SGB15249",
+      "rel": 0.51446,
+      "value": 0.51446
     },
     {
-      "source": "c__Acidimicrobiia",
-      "target": "o__Acidimicrobiales",
-      "rel": 123744,
-      "value": 0.7460900723606801
+      "source": "s__GGB3862_SGB5239",
+      "target": "t__SGB5239",
+      "rel": 0.79851,
+      "value": 0.79851
     },
     {
-      "source": "k__Bacillati",
-      "target": "p__Bacillota",
-      "rel": 324088,
-      "value": 1.9540247557152515
+      "source": "s__GGB9635_SGB15100",
+      "target": "t__SGB15100",
+      "rel": 1.38697,
+      "value": 1.38697
     },
     {
-      "source": "p__Bacillota",
-      "target": "c__Bacilli",
-      "rel": 224960,
-      "value": 1.3563520063862378
+      "source": "s__Ruminococcaceae_bacterium",
+      "target": "t__SGB15356",
+      "rel": 0.97702,
+      "value": 0.97702
     },
     {
-      "source": "c__Bacilli",
-      "target": "o__Bacillales",
-      "rel": 207656,
-      "value": 1.252020947004537
+      "source": "s__Clostridia_unclassified_SGB6293",
+      "target": "t__SGB6293",
+      "rel": 0.70755,
+      "value": 0.70755
     },
     {
-      "source": "o__Bacillales",
-      "target": "f__Bacillaceae",
-      "rel": 88537,
-      "value": 0.5338164010909421
+      "source": "s__Butyrivibrio_crossotus",
+      "target": "t__SGB5065",
+      "rel": 1.23341,
+      "value": 1.23341
     },
     {
-      "source": "o__Bacillales",
-      "target": "f__Paenibacillaceae",
-      "rel": 82695,
-      "value": 0.49859321287388836
+      "source": "s__GGB3733_SGB5066",
+      "target": "t__SGB5066",
+      "rel": 3.29854,
+      "value": 3.29854
     },
     {
-      "source": "k__Bacillati",
-      "target": "p__Cyanobacteriota",
-      "rel": 88220,
-      "value": 0.5319051120350013
+      "source": "s__Ruminococcus_sp_NSJ_71",
+      "target": "t__SGB4290",
+      "rel": 0.83418,
+      "value": 0.83418
     },
     {
-      "source": "p__Cyanobacteriota",
-      "target": "c__Cyanophyceae",
-      "rel": 88100,
-      "value": 0.531181595673131
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14311",
+      "rel": 0.9282,
+      "value": 0.9282
     },
     {
-      "source": "k__Viridiplantae",
-      "target": "p__Streptophyta",
-      "rel": 561855,
-      "value": 3.3875940458221003
+      "source": "s__Phocaeicola_vulgatus",
+      "target": "t__SGB1814",
+      "rel": 3.58076,
+      "value": 3.58076
     },
     {
-      "source": "p__Streptophyta",
-      "target": "c__Magnoliopsida",
-      "rel": 538231,
-      "value": 3.2451577913818954
+      "source": "s__GGB9603_SGB15035",
+      "target": "t__SGB15035",
+      "rel": 1.0341,
+      "value": 1.0341
     },
     {
-      "source": "c__Magnoliopsida",
-      "target": "o__Poales",
-      "rel": 206295,
-      "value": 1.2438150656003242
+      "source": "s__GGB4700_SGB6506",
+      "target": "t__SGB6506",
+      "rel": 0.75465,
+      "value": 0.75465
     },
     {
-      "source": "o__Poales",
-      "target": "f__Poaceae",
-      "rel": 200891,
-      "value": 1.211232712104097
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6427",
+      "rel": 0.50788,
+      "value": 0.50788
     },
     {
-      "source": "k__Methanobacteriati",
-      "target": "p__Methanobacteriota",
-      "rel": 184381,
-      "value": 1.1116889193167714
+      "source": "s__GGB3617_SGB4891",
+      "target": "t__SGB4891",
+      "rel": 0.49443,
+      "value": 0.49443
     },
     {
-      "source": "p__Methanobacteriota",
-      "target": "c__Halobacteria",
-      "rel": 170519,
-      "value": 1.0281107209147176
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6529",
+      "rel": 0.56506,
+      "value": 0.56506
     },
     {
-      "source": "c__Halobacteria",
-      "target": "o__Halobacteriales",
-      "rel": 170519,
-      "value": 1.0281107209147176
+      "source": "s__Bacilli_unclassified_SGB6493",
+      "target": "t__SGB6493",
+      "rel": 4.5072,
+      "value": 4.5072
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB15408",
+      "rel": 0.61183,
+      "value": 0.61183
+    },
+    {
+      "source": "s__Escherichia_coli",
+      "target": "t__SGB10068",
+      "rel": 0.63313,
+      "value": 0.63313
+    },
+    {
+      "source": "s__Ruminococcaceae_bacterium",
+      "target": "t__SGB15084",
+      "rel": 0.68541,
+      "value": 0.68541
+    },
+    {
+      "source": "p__Proteobacteria",
+      "target": "c__CFGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "c__CFGB1062",
+      "target": "o__OFGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "o__OFGB1062",
+      "target": "f__FGB1062",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "f__FGB1062",
+      "target": "g__GGB2734",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "f__Erysipelotrichaceae",
+      "target": "g__Catenibacterium",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "g__GGB2734",
+      "target": "s__GGB2734_SGB3677",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "g__Catenibacterium",
+      "target": "s__Catenibacterium_sp_AM22_15",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "s__GGB2734_SGB3677",
+      "target": "t__SGB3677",
+      "rel": 4.85565,
+      "value": 4.85565
+    },
+    {
+      "source": "s__Catenibacterium_sp_AM22_15",
+      "target": "t__SGB6783_group",
+      "rel": 1.38355,
+      "value": 1.38355
+    },
+    {
+      "source": "p__Euryarchaeota",
+      "target": "c__CFGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "p__Proteobacteria",
+      "target": "c__CFGB2394",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "c__CFGB343",
+      "target": "o__OFGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "c__CFGB2394",
+      "target": "o__OFGB2394",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "o__OFGB343",
+      "target": "f__FGB343",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "o__OFGB2394",
+      "target": "f__FGB2394",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB9285",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "f__FGB343",
+      "target": "g__GGB781",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4641",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "f__Clostridia_unclassified",
+      "target": "g__GGB9059",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4673",
+      "rel": 0.82399,
+      "value": 0.82399
+    },
+    {
+      "source": "f__FGB2394",
+      "target": "g__GGB6544",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4638",
+      "rel": 0.61694,
+      "value": 0.61694
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4674",
+      "rel": 0.60127,
+      "value": 0.60127
+    },
+    {
+      "source": "f__Bacilli_unclassified",
+      "target": "g__GGB4640",
+      "rel": 0.50062,
+      "value": 0.50062
+    },
+    {
+      "source": "g__GGB9285",
+      "target": "s__GGB9285_SGB14238",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "g__Rikenellaceae_unclassified",
+      "target": "s__Rikenellaceae_bacterium",
+      "rel": 2.6071,
+      "value": 2.6071
+    },
+    {
+      "source": "g__GGB781",
+      "target": "s__GGB781_SGB1024",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "g__GGB4641",
+      "target": "s__GGB4641_SGB6420",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "g__GGB4569",
+      "target": "s__GGB4569_SGB6310",
+      "rel": 1.66393,
+      "value": 1.66393
+    },
+    {
+      "source": "g__GGB9059",
+      "target": "s__GGB9059_SGB13976",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "g__Clostridia_unclassified",
+      "target": "s__Clostridia_unclassified_SGB13966",
+      "rel": 1.07876,
+      "value": 1.07876
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_unclassified_SGB6478",
+      "rel": 1.02616,
+      "value": 1.02616
+    },
+    {
+      "source": "g__GGB4673",
+      "target": "s__GGB4673_SGB6462",
+      "rel": 0.82399,
+      "value": 0.82399
+    },
+    {
+      "source": "g__Bifidobacterium",
+      "target": "s__Bifidobacterium_ruminantium",
+      "rel": 0.70777,
+      "value": 0.70777
+    },
+    {
+      "source": "g__GGB4569",
+      "target": "s__GGB4569_SGB6311",
+      "rel": 0.6671,
+      "value": 0.6671
+    },
+    {
+      "source": "g__GGB6544",
+      "target": "s__GGB6544_SGB9243",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "g__GGB4638",
+      "target": "s__GGB4638_SGB6417",
+      "rel": 0.61694,
+      "value": 0.61694
+    },
+    {
+      "source": "g__GGB4674",
+      "target": "s__GGB4674_SGB6463",
+      "rel": 0.60127,
+      "value": 0.60127
+    },
+    {
+      "source": "g__Bacilli_unclassified",
+      "target": "s__Bacilli_unclassified_SGB6502",
+      "rel": 0.59076,
+      "value": 0.59076
+    },
+    {
+      "source": "g__GGB4640",
+      "target": "s__GGB4640_SGB6419",
+      "rel": 0.50062,
+      "value": 0.50062
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6308",
+      "rel": 5.85688,
+      "value": 5.85688
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14111",
+      "rel": 5.48272,
+      "value": 5.48272
+    },
+    {
+      "source": "s__GGB9285_SGB14238",
+      "target": "t__SGB14238",
+      "rel": 2.74289,
+      "value": 2.74289
+    },
+    {
+      "source": "s__GGB781_SGB1024",
+      "target": "t__SGB1024",
+      "rel": 2.45697,
+      "value": 2.45697
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6494",
+      "rel": 2.42002,
+      "value": 2.42002
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6486",
+      "rel": 1.93482,
+      "value": 1.93482
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB4365",
+      "rel": 1.74537,
+      "value": 1.7453700000000003
+    },
+    {
+      "source": "s__GGB4641_SGB6420",
+      "target": "t__SGB6420",
+      "rel": 1.71188,
+      "value": 1.71188
+    },
+    {
+      "source": "s__GGB4569_SGB6310",
+      "target": "t__SGB6310",
+      "rel": 1.66393,
+      "value": 1.66393
+    },
+    {
+      "source": "s__Rikenellaceae_bacterium",
+      "target": "t__SGB2241",
+      "rel": 1.5463,
+      "value": 1.5463
+    },
+    {
+      "source": "s__GGB9059_SGB13976",
+      "target": "t__SGB13976",
+      "rel": 1.27685,
+      "value": 1.27685
+    },
+    {
+      "source": "s__Clostridia_unclassified_SGB13966",
+      "target": "t__SGB13966",
+      "rel": 1.07876,
+      "value": 1.07876
+    },
+    {
+      "source": "s__Rikenellaceae_bacterium",
+      "target": "t__SGB2215",
+      "rel": 1.06079,
+      "value": 1.06079
+    },
+    {
+      "source": "s__Bacilli_unclassified_SGB6478",
+      "target": "t__SGB6478",
+      "rel": 1.02616,
+      "value": 1.02616
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6510",
+      "rel": 1.01927,
+      "value": 1.01927
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14240",
+      "rel": 0.87717,
+      "value": 0.87717
+    },
+    {
+      "source": "s__GGB4673_SGB6462",
+      "target": "t__SGB6462",
+      "rel": 0.82399,
+      "value": 0.82399
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6301",
+      "rel": 0.80004,
+      "value": 0.80004
+    },
+    {
+      "source": "s__Bacteroidales_bacterium",
+      "target": "t__SGB2021",
+      "rel": 0.79688,
+      "value": 0.79688
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6290",
+      "rel": 0.71244,
+      "value": 0.71244
+    },
+    {
+      "source": "s__Bifidobacterium_ruminantium",
+      "target": "t__SGB17243",
+      "rel": 0.70777,
+      "value": 0.70777
+    },
+    {
+      "source": "s__GGB4569_SGB6311",
+      "target": "t__SGB6311",
+      "rel": 0.6671,
+      "value": 0.6671
+    },
+    {
+      "source": "s__GGB6544_SGB9243",
+      "target": "t__SGB9243",
+      "rel": 0.66491,
+      "value": 0.66491
+    },
+    {
+      "source": "s__GGB4638_SGB6417",
+      "target": "t__SGB6417",
+      "rel": 0.61694,
+      "value": 0.61694
+    },
+    {
+      "source": "s__GGB4674_SGB6463",
+      "target": "t__SGB6463",
+      "rel": 0.60127,
+      "value": 0.60127
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB6421",
+      "rel": 0.59422,
+      "value": 0.59422
+    },
+    {
+      "source": "s__Bacilli_unclassified_SGB6502",
+      "target": "t__SGB6502",
+      "rel": 0.59076,
+      "value": 0.59076
+    },
+    {
+      "source": "s__Bacilli_bacterium",
+      "target": "t__SGB1016",
+      "rel": 0.52763,
+      "value": 0.52763
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB14084",
+      "rel": 0.51717,
+      "value": 0.51717
+    },
+    {
+      "source": "s__GGB4640_SGB6419",
+      "target": "t__SGB6419",
+      "rel": 0.50062,
+      "value": 0.50062
+    },
+    {
+      "source": "s__Opitutales_bacterium",
+      "target": "t__SGB8776",
+      "rel": 0.49807,
+      "value": 0.49807
+    },
+    {
+      "source": "s__Clostridia_bacterium",
+      "target": "t__SGB6249",
+      "rel": 0.49279,
+      "value": 0.49279
     }
   ]
 }
@@ -2647,11 +3956,11 @@
   const data_0_1 = JSON.parse(
     document.getElementById("data_0_1").textContent
   );
-
   const ranks = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"]
   
+  let currentNodeLimit = null
 
-  const highlightPath = ['k__Pseudomonadati', 'p__Pseudomonadota', 'c__Alphaproteobacteria', 'o__Hyphomicrobiales', 'f__Nitrobacteraceae', 'g__Bradyrhizobium', 's__Bradyrhizobium_sp'];
+  const highlightPath = [];
   
 
   let highlightNodes = new Set(highlightPath);
@@ -2683,6 +3992,35 @@
 
   return { nodes, links };
 }
+  
+  function filterByNodeLimit(data, maxNodes) {
+      const keptNodes = [];
+
+      for (const rank of ranks) {
+          const rankNodes = data.nodes
+              .filter(n => n.rank === rank)
+              .sort((a, b) => b.value - a.value)
+              .slice(0, maxNodes ?? Infinity);
+
+          keptNodes.push(...rankNodes);
+      }
+
+      const names = new Set(
+          keptNodes.map(n => n.name)
+      );
+
+      const nodes = data.nodes.filter(
+          n => names.has(n.name)
+      );
+
+      const links = data.links
+
+      return {
+          nodes, links
+      };
+  }
+
+
   function getParents(nodeId, links, path=[]) {
     const node = links
       .filter(l => l.target === nodeId)
@@ -2697,8 +4035,13 @@
   
 
   function makeSankeyOptions(data) {
+
+    console.log(currentNodeLimit)
+    truncatedData = filterByNodeLimit(data=data, maxNodes=currentNodeLimit)
+    console.log(truncatedData)
+
     console.log(currentDepth)
-    filteredData = filterByDepth(data=data, maxDepth=currentDepth)
+    filteredData = filterByDepth(data=truncatedData, maxDepth=currentDepth)
 
 //    console.log(highlightPath)
 
@@ -2718,7 +4061,7 @@
 
     // console.log(getParents(filteredData.nodes[5].name, filteredData.links))
     
-    const HIGHLIGHT_COLOR = "#FF637E"
+    const HIGHLIGHT_COLOR = "#f5e042"
     const styledNodes = filteredData.nodes.map(n => {
       if (highlightNodes.has(n.name)) {
         return {
@@ -2781,7 +4124,7 @@
           type: 'sankey',
           nodeGap: 25,
           nodeAlign: 'left',
-          layoutIterations: 50,
+          layoutIterations: 0,
           emphasis: {
             focus: 'adjacency'
           },
@@ -2959,4 +4302,15 @@
     );
     rerenderChart(currentData);
   }
+
+  function onLimitChange() {
+    const sliderVals = [1, 5, 10, 15, 20, 25, null]
+    currentNodeLimit = sliderVals[document.getElementById("nodeLimit").value];
+    document.getElementById("nodeLimitToolTip").textContent = currentNodeLimit ?? "Max"
+    const dom = document.getElementById("chart");
+    chart = echarts.init(dom);
+    chart.setOption(makeSankeyOptions(currentData));
+    console.log(currentNodeLimit);
+  }
+
 </script>

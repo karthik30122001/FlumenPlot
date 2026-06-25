@@ -71,6 +71,18 @@
         <option value="5">Up to Genus</option>
         <option value="6">Up to Species</option>
       </select>
+      <div>
+        <span id="nodeLimitToolTip">Max</span>
+        <input
+        id="nodeLimit"
+        type="range"
+        min="0"
+        max="6"
+        step="1"
+        value="6"
+        onchange="onLimitChange()"
+        />
+      </div>
     </div>
   </div>
 <div id="chart"></div>
@@ -98,9 +110,9 @@
   const data_0_1 = JSON.parse(
     document.getElementById("data_0_1").textContent
   );
-
   const ranks = ["Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species"]
   
+  let currentNodeLimit = null
 
   const highlightPath = {{PATH}};
   
@@ -134,6 +146,35 @@
 
   return { nodes, links };
 }
+  
+  function filterByNodeLimit(data, maxNodes) {
+      const keptNodes = [];
+
+      for (const rank of ranks) {
+          const rankNodes = data.nodes
+              .filter(n => n.rank === rank)
+              .sort((a, b) => b.value - a.value)
+              .slice(0, maxNodes ?? Infinity);
+
+          keptNodes.push(...rankNodes);
+      }
+
+      const names = new Set(
+          keptNodes.map(n => n.name)
+      );
+
+      const nodes = data.nodes.filter(
+          n => names.has(n.name)
+      );
+
+      const links = data.links
+
+      return {
+          nodes, links
+      };
+  }
+
+
   function getParents(nodeId, links, path=[]) {
     const node = links
       .filter(l => l.target === nodeId)
@@ -148,8 +189,13 @@
   
 
   function makeSankeyOptions(data) {
+
+    console.log(currentNodeLimit)
+    truncatedData = filterByNodeLimit(data=data, maxNodes=currentNodeLimit)
+    console.log(truncatedData)
+
     console.log(currentDepth)
-    filteredData = filterByDepth(data=data, maxDepth=currentDepth)
+    filteredData = filterByDepth(data=truncatedData, maxDepth=currentDepth)
 
 //    console.log(highlightPath)
 
@@ -232,7 +278,7 @@
           type: 'sankey',
           nodeGap: 25,
           nodeAlign: 'left',
-          layoutIterations: 50,
+          layoutIterations: 0,
           emphasis: {
             focus: 'adjacency'
           },
@@ -410,4 +456,15 @@
     );
     rerenderChart(currentData);
   }
+
+  function onLimitChange() {
+    const sliderVals = [1, 5, 10, 15, 20, 25, null]
+    currentNodeLimit = sliderVals[document.getElementById("nodeLimit").value];
+    document.getElementById("nodeLimitToolTip").textContent = currentNodeLimit ?? "Max"
+    const dom = document.getElementById("chart");
+    chart = echarts.init(dom);
+    chart.setOption(makeSankeyOptions(currentData));
+    console.log(currentNodeLimit);
+  }
+
 </script>

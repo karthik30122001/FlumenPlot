@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sankey Dev</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <link rel="stylesheet" href="sankey.css">
+</head>
+<body>
+  <div class="title-bar">
+    <p class="title-text">Taxonomy Sankey</p>
+    <div class="buttons">
+      <button id="but1" onClick="set1reads()">5% reads</button>
+      <button id="but2" onClick="set05reads()">1% reads</button>
+      <button id="but3" onClick="set01reads()">0.5% reads</button>
+      <select id="depthSelect" onchange="onDepthChange()">
+        <option value="2" selected>Up to Class</option>
+        <option value="3">Up to Order</option>
+        <option value="4">Up to Family</option>
+        <option value="5">Up to Genus</option>
+        <option value="6">Up to Species</option>
+      </select>
+      <div>
+        <span id="nodeLimitToolTip">Max</span>
+        <input
+          id="nodeLimit"
+          type="range"
+          min="0"
+          max="6"
+          step="1"
+          value="6"
+          onchange="onLimitChange()"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div id="chartA"></div>
+  <div id="chartB"></div>
+  <script src="dev_data.js"></script>
+  <script src="dev_data1.js"></script>
+  <script src="sankey.js"></script>
+</body>
+</html>

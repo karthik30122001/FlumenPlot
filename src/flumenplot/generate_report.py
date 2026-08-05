@@ -17,7 +17,7 @@ def render_html(data, output, color, list=[]):
 
     html, sankey_js, sankey_css = load_templates()
     html = html.replace("{{DATA}}", json.dumps(data, indent=2))
-    html = html.replace("{{DATA1}}", "")
+    html = html.replace("{{DATA1}}", "null")
     html = html.replace("{{CSS}}", sankey_css)
     html = html.replace("{{SANKEYJS}}", sankey_js)
     html = html.replace("{{PATH}}", str(list))

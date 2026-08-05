@@ -65,7 +65,7 @@ def main() -> None:
     )
     metaphlan.add_argument(
         "input",
-        nargs="2",
+        nargs="+",
         help="MetaPhlAn output file",
     )
     metaphlan.add_argument(
@@ -103,6 +103,8 @@ def main() -> None:
         help="Debug",
     )
     args = parser.parse_args()
+    if not 1 <= len(args.input) <= 2:
+        parser.error("provide one report (single sample) or two (pairwise comparison)")
 
     try:
         if args.command == "kraken":
@@ -137,9 +139,9 @@ def main() -> None:
             sys.exit()
 
         if args.command == "metaphlan":
-            data_1 = mpa_to_sankey(args.input, min_percent=4.9, consensus=args.consensus)
-            data_0_5 = mpa_to_sankey(args.input, min_percent=0.9, consensus=args.consensus)
-            data_0_1 = mpa_to_sankey(args.input, min_percent=0.49, consensus=args.consensus)
+            data_1 = mpa_to_sankey(args.input[0], min_percent=4.9, consensus=args.consensus)
+            data_0_5 = mpa_to_sankey(args.input[0], min_percent=0.9, consensus=args.consensus)
+            data_0_1 = mpa_to_sankey(args.input[0], min_percent=0.49, consensus=args.consensus)
 
         # else:
         #     parser.error("Unknown command")

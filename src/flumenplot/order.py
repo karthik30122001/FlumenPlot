@@ -1,34 +1,6 @@
 
-# def sort_check(nodes):
-#     for i,_ in enumerate(nodes):
-#         if i < len(nodes)-1:
-#             if nodes[i]['percent'] >= nodes[i+1]['percent']:
-#                 pass
-#             else:
-#                 return False
-#     return True
-#
-# def bubble_sort(nodes):
-#     if sort_check(nodes):
-#         return nodes
-#
-#     else:
-#         for i,_ in enumerate(nodes):
-#             if i < len(nodes)-1:
-#                 if nodes[i]['percent'] > nodes[i+1]['percent']:
-#                     pass
-#                 else:
-#                     v1 = nodes[i]
-#                     v2 = nodes[i+1]
-#
-#                     nodes[i] = v2
-#                     nodes[i+1] = v1
-#                     v1 = None
-#                     v2 = None
-#         return bubble_sort(nodes)
 def get_roots(nodes, edges):
     targets = {edge["target"] for edge in edges}
-
     root_nodes = [
         node
         for node in nodes
@@ -72,5 +44,6 @@ def order_alpabetically(dataset):
         ordered_nodes.append(root)
         ordered_nodes.extend(get_children(root, dataset["nodes"], dataset["links"]))
         
+    # print(ordered_nodes)
     return ordered_nodes
 

@@ -56,7 +56,11 @@ function filterByNodeLimit(data, maxNodes) {
       .slice(0, maxNodes ?? Infinity);
     keptNodes.push(...rankNodes);
   }
-  const names = new Set(keptNodes.map(n => n.name));
+  const names = new Set();
+  for (const node of keptNodes) {
+    getParents(node.name, data.links).forEach(name => names.add(name));
+  }
+  // const names = new Set(keptNodes.map(n => n.name));
   const nodes = data.nodes.filter(n => names.has(n.name));
   const links = data.links;
   return { nodes, links };
@@ -136,14 +140,19 @@ function makeSankeyOptions(instance) {
       label: {
         show: true,
         silent: true,
-        fontSize: 17,
+        fontSize: 15,
         textBorderColor: 'transparent',
         lineHeight: 15,
         formatter: function (params) {
           const reads = typeof params.value === 'number'
             ? params.value.toPrecision(4)
             : 'NA';
-          return `${params.data.label}\n${reads} %`;
+          const label =
+            params.data.label.length > 20 && params.data.rank != "Species"
+              ? params.data.label.slice(0, 17) + "..."
+              : params.data.label;
+
+          return `${label}\n${reads} %`;
         }
       },
       lineStyle: {
@@ -159,6 +168,7 @@ function makeSankeyOptions(instance) {
         { depth: 3, itemStyle: { color: '#abf4a3' }, lineStyle: { color: '#abf4a3', opacity: 0.6 } },
         { depth: 4, itemStyle: { color: '#94F38F' }, lineStyle: { color: '#94F28F', opacity: 0.6 } },
         { depth: 5, itemStyle: { color: '#8FCE00' }, lineStyle: { color: '#8FCE00', opacity: 0.6 } },
+        { depth: 6, itemStyle: { color: '#A1B754' }, lineStyle: { color: '#A1B754', opacity: 0.6 } },
       ],
     }]
   };

@@ -21,7 +21,10 @@ def get_rank(taxon):
 
 
 def validate_dataframe(filepath, consensus):
-    data = pd.read_csv(filepath, delimiter="\t")
+    if consensus:
+        data = pd.read_csv(filepath, delimiter="\t", comment="#")
+    else:
+        data = pd.read_csv(filepath, delimiter="\t", comment="#", header=None)
     if len(data.columns) < 3:
         data.columns = ['classification', 'reads_count']
         data = add_relative_abundance(data)
@@ -34,9 +37,12 @@ def validate_dataframe(filepath, consensus):
     else:
         try:
             data.columns = [
-                    'classification', 'reads_count', 'relative_abundance'
-                    ]
-            return data
+                "classification",
+                "taxid",
+                "relative_abundance",
+                "additional_species",
+            ]
+            return data[["classification", "taxid", "relative_abundance"]]
         except Exception as e:
             raise Exception(
                 f"Failed to parse input file: {e}"
@@ -64,7 +70,7 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
     nodes = []
     edges = []
 
-    for path, count, percent in rows:
+    for path, count, percent  in rows:
         if percent <= min_percent:
             continue
 
@@ -86,12 +92,12 @@ def mpa_to_sankey(filepath, max_depth=None, min_percent=0.0, consensus=False):
             edges.append({
                 'source': parts[-2],
                 'target': parts[-1],
-                'rel': count,
+                'rel': percent,
                 'value': percent
                 })
 
     # order_by_abundance(nodes)
-    # print("Test")
+    # print(nodes)
     return {
         "nodes": nodes,
         "links": edges
